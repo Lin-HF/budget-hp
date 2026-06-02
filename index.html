@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#08110d" />
+    <title>Budget HP</title>
+    <link rel="stylesheet" href="./styles.css?v=20260601-3" />
+  </head>
+  <body>
+    <main class="app-shell" aria-label="Budget dashboard prototype" data-active-view="home">
+      <section class="screen" data-view="home">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow" data-budget-month-label>May Budget</p>
+            <h1>Budget HP</h1>
+          </div>
+          <button class="icon-button" type="button" aria-label="Open settings" data-tab-target="settings">
+            <span aria-hidden="true">⚙</span>
+          </button>
+        </header>
+
+        <section class="hero-panel" aria-labelledby="remaining-title">
+          <div class="hero-copy">
+            <p id="remaining-title" class="muted" data-i18n="totalRemaining">Total remaining</p>
+            <div class="money-row">
+              <span data-hero-left>$1,284</span>
+              <small data-i18n="left">left</small>
+            </div>
+            <p class="subline" data-hero-subline>$716 spent of $2,000 monthly budget</p>
+          </div>
+          <div class="hp-orb" aria-hidden="true">
+            <span data-hero-percent>64%</span>
+          </div>
+          <div class="hp-track large" aria-label="64 percent of monthly budget remaining">
+            <span data-hero-bar style="width: 64%"></span>
+          </div>
+        </section>
+
+        <section class="wishlist-strip" aria-label="Wishlist progress">
+          <div class="section-heading">
+            <h2 data-i18n="wishlist">Wishlist</h2>
+            <p data-i18n="nextUnlock">Next unlock</p>
+          </div>
+          <div class="horizontal-rail home-wish-rail">
+            <article class="wish-card compact" data-wish-item>
+              <div class="wish-main">
+                <span class="wish-icon" aria-hidden="true">🎮</span>
+                <div>
+                  <h3 data-home-wish-name>New game</h3>
+                  <p data-home-wish-copy>Games · $70 available of $100 · $30 to go</p>
+                </div>
+              </div>
+              <strong data-home-wish-months>1 month</strong>
+              <div class="hp-track small wish-progress" aria-label="70 percent funded by Games category">
+                <span data-home-wish-bar style="width: 70%"></span>
+              </div>
+            </article>
+            <article class="wish-card compact" data-wish-item>
+              <div class="wish-main">
+                <span class="wish-icon" aria-hidden="true">💻</span>
+                <div>
+                  <h3>Computer</h3>
+                  <p>Life · $1,284 available of $2,000 · $716 to go</p>
+                </div>
+              </div>
+              <strong>4 months</strong>
+              <div class="hp-track small wish-progress"><span style="width: 64%"></span></div>
+            </article>
+            <article class="wish-card compact" data-wish-item>
+              <div class="wish-main">
+                <span class="wish-icon" aria-hidden="true">🎧</span>
+                <div>
+                  <h3>Headphones</h3>
+                  <p>Entertainment · $180 available of $260 · $80 to go</p>
+                </div>
+              </div>
+              <strong>1 month</strong>
+              <div class="hp-track small wish-progress"><span style="width: 69%"></span></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="category-panel" aria-label="Category budget bars">
+          <div class="section-heading">
+            <h2 data-i18n="categories">Categories</h2>
+            <button class="mini-button" type="button" data-tab-target="categories" data-i18n="edit">Edit</button>
+          </div>
+          <div class="category-list">
+            <article class="category-row">
+              <div class="category-meta">
+                <span class="dot entertainment"></span>
+                <div>
+                  <h3>Entertainment</h3>
+                  <p>$180 left of $300</p>
+                </div>
+              </div>
+              <strong>60%</strong>
+              <div class="hp-track small"><span style="width: 60%"></span></div>
+            </article>
+            <article class="category-row">
+              <div class="category-meta">
+                <span class="dot games"></span>
+                <div>
+                  <h3>Games</h3>
+                  <p>$70 left of $220</p>
+                </div>
+              </div>
+              <strong>32%</strong>
+              <div class="hp-track small warning"><span style="width: 32%"></span></div>
+            </article>
+            <article class="category-row">
+              <div class="category-meta">
+                <span class="dot pets"></span>
+                <div>
+                  <h3>Pets</h3>
+                  <p>$240 left of $320</p>
+                </div>
+              </div>
+              <strong>75%</strong>
+              <div class="hp-track small"><span style="width: 75%"></span></div>
+            </article>
+            <article class="category-row">
+              <div class="category-meta">
+                <span class="dot life"></span>
+                <div>
+                  <h3>Life</h3>
+                  <p>$430 left of $650</p>
+                </div>
+              </div>
+              <strong>66%</strong>
+              <div class="hp-track small"><span style="width: 66%"></span></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="dashboard-panel" aria-label="Spending dashboard">
+          <div class="section-heading">
+            <h2 data-i18n="dashboard">Dashboard</h2>
+            <p data-i18n="cashRunway">Cash runway</p>
+          </div>
+
+          <div class="range-switcher" role="tablist" aria-label="Time range">
+            <button class="active" type="button" data-range="1M">1M</button>
+            <button type="button" data-range="3M">3M</button>
+            <button type="button" data-range="6M">6M</button>
+            <button type="button" data-range="1Y">1Y</button>
+            <button type="button" data-range="ALL">ALL</button>
+          </div>
+
+          <div class="dashboard-rail horizontal-rail">
+            <article class="metric-card">
+              <p data-i18n="totalSpending">Total spending</p>
+              <strong data-stat="spending">$716</strong>
+              <span>1M selected</span>
+            </article>
+            <article class="metric-card">
+              <p data-i18n="budgetLeft">Budget left</p>
+              <strong data-stat="surplus">$1,284</strong>
+              <span>available to save</span>
+            </article>
+            <article class="metric-card">
+              <p data-i18n="goalGap">Goal gap</p>
+              <strong data-stat="goal">$716</strong>
+              <span>computer target</span>
+            </article>
+            <article class="metric-card goal-card">
+              <div>
+                <p class="muted" data-i18n="computerFund">Computer fund</p>
+                <strong data-stat="goalLine">$1,284 saved toward $2,000</strong>
+              </div>
+              <span data-stat="goalHint">4 months left at $200/mo</span>
+            </article>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-header">
+              <div>
+                <p class="muted" data-i18n="remainingOverTime">Remaining budget over time</p>
+                <strong data-stat="trend">$1,284 left</strong>
+              </div>
+              <span data-i18n="afterSpending">after spending</span>
+            </div>
+            <svg class="line-chart" viewBox="0 0 340 170" role="img" aria-label="Remaining budget line chart">
+              <defs>
+                <linearGradient id="lineGradient" x1="0" x2="1" y1="0" y2="0">
+                  <stop offset="0%" stop-color="#29d182" />
+                  <stop offset="55%" stop-color="#f0c95a" />
+                  <stop offset="100%" stop-color="#ff675f" />
+                </linearGradient>
+                <linearGradient id="areaGradient" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#29d182" stop-opacity="0.28" />
+                  <stop offset="100%" stop-color="#29d182" stop-opacity="0" />
+                </linearGradient>
+              </defs>
+              <path class="chart-area" d="M10 116 C56 92 70 122 112 84 C148 50 176 78 210 60 C250 36 282 66 330 42 L330 160 L10 160 Z" />
+              <path class="chart-line" d="M10 116 C56 92 70 122 112 84 C148 50 176 78 210 60 C250 36 282 66 330 42" />
+              <line class="zero-line" x1="10" y1="132" x2="330" y2="132" />
+              <circle cx="330" cy="42" r="5" />
+            </svg>
+          </div>
+
+          <div class="reserve-list chart-selector" aria-label="Chart series selector">
+            <button class="active" type="button" data-chart-series="total">Total surplus</button>
+          </div>
+        </section>
+      </section>
+
+      <section class="screen hidden" data-view="categories">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow" data-i18n="dashboard">Dashboard</p>
+            <h1 data-i18n="categories">Categories</h1>
+          </div>
+          <button class="icon-button" type="button" aria-label="Back to home" data-tab-target="home">
+            <span aria-hidden="true">⌂</span>
+          </button>
+        </header>
+
+        <section class="category-editor-panel" aria-label="Category editor">
+          <div class="section-heading">
+            <h2 data-i18n="manageCategories">Manage categories</h2>
+            <button class="mini-button" type="button" data-add-category data-i18n="add">＋ Add</button>
+          </div>
+          <div class="settings-list">
+            <div data-category-item>
+              <input class="category-icon-input" type="text" value="🎬" aria-label="Category icon" maxlength="2" />
+              <input class="category-name-input" type="text" value="Entertainment" aria-label="Category name" />
+              <input type="text" value="$300" inputmode="decimal" />
+              <button class="icon-button tiny danger" type="button" aria-label="Delete category" data-delete-category>×</button>
+            </div>
+            <div data-category-item>
+              <input class="category-icon-input" type="text" value="🎮" aria-label="Category icon" maxlength="2" />
+              <input class="category-name-input" type="text" value="Games" aria-label="Category name" />
+              <input type="text" value="$220" inputmode="decimal" />
+              <button class="icon-button tiny danger" type="button" aria-label="Delete category" data-delete-category>×</button>
+            </div>
+            <div data-category-item>
+              <input class="category-icon-input" type="text" value="🐾" aria-label="Category icon" maxlength="2" />
+              <input class="category-name-input" type="text" value="Pets" aria-label="Category name" />
+              <input type="text" value="$320" inputmode="decimal" />
+              <button class="icon-button tiny danger" type="button" aria-label="Delete category" data-delete-category>×</button>
+            </div>
+            <div data-category-item>
+              <input class="category-icon-input" type="text" value="🛒" aria-label="Category icon" maxlength="2" />
+              <input class="category-name-input" type="text" value="Life" aria-label="Category name" />
+              <input type="text" value="$650" inputmode="decimal" />
+              <button class="icon-button tiny danger" type="button" aria-label="Delete category" data-delete-category>×</button>
+            </div>
+          </div>
+          <button class="confirm-button" type="button" data-save-categories data-i18n="saveCategories">Save categories</button>
+        </section>
+      </section>
+
+      <section class="screen hidden" data-view="records">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow" data-i18n="history">History</p>
+            <h1 data-i18n="records">Records</h1>
+          </div>
+          <button class="icon-button" type="button" aria-label="Add spending record" data-open-sheet>
+            <span aria-hidden="true">＋</span>
+          </button>
+        </header>
+
+        <section class="records-panel" aria-label="Saved spending records">
+          <div class="section-heading">
+            <h2 data-i18n="savedRecords">Saved records</h2>
+            <p data-i18n="localDevice">Local device</p>
+          </div>
+          <div class="record-list">
+            <article>
+              <div>
+                <strong>Lunch and coffee</strong>
+                <span>Life · Today</span>
+              </div>
+              <em>−$38.50</em>
+            </article>
+            <article>
+              <div>
+                <strong>Steam sale</strong>
+                <span>Games · May 14</span>
+              </div>
+              <em>−$24.99</em>
+            </article>
+            <article>
+              <div>
+                <strong>Pet food</strong>
+                <span>Pets · May 09</span>
+              </div>
+              <em>−$62.10</em>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="screen hidden" data-view="wishlist">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow" data-i18n="goals">Goals</p>
+            <h1 data-i18n="wishlist">Wishlist</h1>
+          </div>
+          <button class="icon-button" type="button" aria-label="Add wishlist item" data-open-wish-sheet>
+            <span aria-hidden="true">＋</span>
+          </button>
+        </header>
+
+        <section class="wishlist-panel" aria-label="Wishlist items">
+          <div class="section-heading">
+            <h2 data-i18n="thingsToBuy">Things to buy</h2>
+            <p data-i18n="fundedByLeftover">Funded by leftover budget</p>
+          </div>
+
+          <div class="wish-list">
+            <article class="wish-card" data-wish-item>
+              <div class="wish-main">
+                <span class="wish-icon" aria-hidden="true">🎮</span>
+                <div>
+                  <h3>New game</h3>
+                  <p>Games · $70 available of $100 · $30 to go</p>
+                </div>
+              </div>
+              <strong>1 month</strong>
+              <div class="hp-track small wish-progress"><span style="width: 70%"></span></div>
+            </article>
+            <article class="wish-card" data-wish-item>
+              <div class="wish-main">
+                <span class="wish-icon" aria-hidden="true">💻</span>
+                <div>
+                  <h3>Computer</h3>
+                  <p>Life · $1,284 available of $2,000 · $716 to go</p>
+                </div>
+              </div>
+              <strong>4 months</strong>
+              <div class="hp-track small wish-progress"><span style="width: 64%"></span></div>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <section class="screen hidden" data-view="settings">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow" data-i18n="controls">Controls</p>
+            <h1 data-i18n="settings">Settings</h1>
+          </div>
+          <button class="icon-button" type="button" aria-label="Back to home" data-tab-target="home">
+            <span aria-hidden="true">⌂</span>
+          </button>
+        </header>
+
+        <section class="settings-panel">
+          <div class="section-heading">
+            <h2 data-i18n="monthlyBudget">Monthly budget</h2>
+            <p data-i18n="resetRules">Reset rules</p>
+          </div>
+          <label>
+            <span data-i18n="language">Language</span>
+            <select data-language-select>
+              <option value="en">English</option>
+              <option value="zh">中文</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="monthlyTotalBudget">Monthly total budget</span>
+            <input type="text" value="$2,000" inputmode="decimal" data-monthly-budget-input />
+          </label>
+          <label>
+            <span data-i18n="currency">Currency</span>
+            <select>
+              <option>$ USD</option>
+              <option>¥ CNY</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="autoRefreshBudget">Auto refresh budget</span>
+            <select data-reset-rule-select>
+              <option value="lastDay" data-i18n="lastDay">Last day of every month</option>
+              <option value="firstDay" data-i18n="firstDay">First day of every month</option>
+              <option value="customDay" data-i18n="customDay">Custom day</option>
+              <option value="off" data-i18n="off">Off</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="whenRefreshed">When refreshed</span>
+            <select data-reset-action-select>
+              <option value="keepRecords" data-i18n="keepRecords">Keep all records and reset remaining budget</option>
+              <option value="archiveRecords" data-i18n="archiveRecords">Archive records by month</option>
+            </select>
+          </label>
+
+          <button class="confirm-button" type="button" data-save-settings data-i18n="saveSettings">Save settings</button>
+        </section>
+      </section>
+
+      <button class="subtract-button" type="button" aria-label="Subtract today's spending" data-open-sheet>
+        <span>−</span>
+      </button>
+
+      <nav class="tabbar" aria-label="Primary navigation">
+        <button class="active" type="button" data-tab-target="home">
+          <span aria-hidden="true">⌁</span>
+          <span data-i18n="home">Home</span>
+        </button>
+        <button type="button" data-tab-target="wishlist">
+          <span aria-hidden="true">♡</span>
+          <span data-i18n="wishlist">Wishlist</span>
+        </button>
+        <span class="tab-spacer" aria-hidden="true"></span>
+        <button type="button" data-tab-target="records">
+          <span aria-hidden="true">☷</span>
+          <span data-i18n="records">Records</span>
+        </button>
+        <button type="button" data-tab-target="settings">
+          <span aria-hidden="true">⚙</span>
+          <span data-i18n="settings">Settings</span>
+        </button>
+      </nav>
+
+      <div class="sheet-backdrop" data-close-sheet></div>
+      <section class="wish-sheet" aria-label="Wishlist item editor" aria-hidden="true">
+        <div class="grabber"></div>
+        <div class="sheet-header">
+          <div>
+            <p class="eyebrow" data-i18n="wishlist">Wishlist</p>
+            <h2 data-wish-sheet-title data-i18n="addWishlistItem">Add wishlist item</h2>
+          </div>
+          <button class="icon-button" type="button" aria-label="Close wishlist editor" data-close-wish-sheet>×</button>
+        </div>
+        <div class="wish-form">
+          <label>
+            <span data-i18n="name">Name</span>
+            <input type="text" value="New game" data-wish-name />
+          </label>
+          <label>
+            <span data-i18n="fundingCategory">Funding category</span>
+            <select data-wish-category>
+              <option>Games</option>
+              <option>Entertainment</option>
+              <option>Pets</option>
+              <option>Life</option>
+            </select>
+          </label>
+          <label>
+            <span data-i18n="price">Price</span>
+            <input type="text" value="$100" inputmode="decimal" data-wish-price />
+          </label>
+          <label>
+            <span data-i18n="currentCategoryLeft">Current category left</span>
+            <input type="text" value="$70" inputmode="decimal" data-wish-available readonly />
+          </label>
+          <label>
+            <span data-i18n="targetMonths">Target months</span>
+            <select data-wish-months></select>
+          </label>
+          <button class="confirm-button" type="button" data-add-wish data-i18n="addWishlistItem">Add wishlist item</button>
+        </div>
+      </section>
+      <section class="spend-sheet" aria-label="Subtract spending sheet" aria-hidden="true">
+        <div class="grabber"></div>
+        <div class="sheet-header">
+          <div>
+            <p class="eyebrow" data-i18n="today">Today</p>
+            <h2 data-i18n="subtractSpending">Subtract spending</h2>
+          </div>
+          <button class="icon-button" type="button" aria-label="Close spending sheet" data-close-sheet>×</button>
+        </div>
+        <label class="amount-field">
+          <span data-i18n="amount">Amount</span>
+          <input type="text" value="$38.50" inputmode="decimal" />
+        </label>
+        <div class="chip-group" aria-label="Pick category">
+          <button class="active" type="button">Life</button>
+          <button type="button">Games</button>
+          <button type="button">Pets</button>
+          <button type="button">Entertainment</button>
+        </div>
+        <label class="note-field">
+          <span data-i18n="note">Note</span>
+          <input type="text" value="Lunch and coffee" />
+        </label>
+        <button class="confirm-button" type="button" data-save-record data-i18n="subtractFromBudget">Subtract from budget</button>
+      </section>
+    </main>
+
+    <script src="./app.js?v=20260601-3"></script>
+  </body>
+</html>
