@@ -975,6 +975,10 @@ select {
   font-weight: 850;
 }
 
+.mini-button.danger {
+  color: #ffd6d3;
+}
+
 .settings-list {
   display: grid;
   gap: 10px;
@@ -1048,6 +1052,13 @@ select {
   display: grid;
   gap: 4px;
   min-width: 0;
+}
+
+.record-list .record-actions {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  gap: 8px;
 }
 
 .record-list strong,

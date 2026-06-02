@@ -42,10 +42,10 @@ const defaultCategories = [
 
 const translations = {
   en: {
-    add: "＋ Add", addWishlistItem: "Add wishlist item", appTitle: "Budget HP", amount: "Amount", archiveRecords: "Archive records by month", autoRefreshBudget: "Auto refresh budget", availableToSave: "available to save", budgetDeviation: "Budget deviation", budgetLeft: "Budget left", cashRunway: "Spending pace", categories: "Categories", comparedWithPlan: "compared with plan", controls: "Controls", currency: "Currency", currentCategoryLeft: "Current category left", customDay: "Custom day", dashboard: "Dashboard", edit: "Edit", emptyRecords: "No spending records yet", emptyWishlist: "No wishlist items yet", firstDay: "First day of every month", fundedByLeftover: "Funded by leftover budget", fundingCategory: "Funding category", goals: "Goals", history: "History", home: "Home", keepRecords: "Keep all records and reset remaining budget", language: "Language", lastDay: "Last day of every month", left: "left", localDevice: "Local device", manageCategories: "Manage categories", monthlyBudget: "Monthly budget", monthlyCategoryBudget: "Monthly category budget", monthlyPlan: "Monthly plan", monthlyTotalBudget: "Monthly total budget", name: "Name", nextUnlock: "Next unlock", note: "Note", off: "Off", plannedBudgetLine: "gray = budget plan", price: "Price", records: "Records", resetRules: "Reset rules", savedRecords: "Saved records", saveCategories: "Save categories", saveSettings: "Save settings", saveWishlistItem: "Save wishlist item", settings: "Settings", spendingTrend: "Spending over time", subtractFromBudget: "Subtract from budget", subtractSpending: "Subtract spending", targetMonths: "Target months", thingsToBuy: "Things to buy", today: "Today", totalRemaining: "Total remaining", totalSpending: "Total spending", whenRefreshed: "When refreshed", wishlist: "Wishlist",
+    add: "＋ Add", addWishlistItem: "Add wishlist item", appTitle: "Budget HP", amount: "Amount", archiveRecords: "Archive records by month", autoRefreshBudget: "Auto refresh budget", availableToSave: "available to save", budgetDeviation: "Budget deviation", budgetLeft: "Budget left", cashRunway: "Spending pace", categories: "Categories", comparedWithPlan: "compared with plan", controls: "Controls", currency: "Currency", currentCategoryLeft: "Current category left", customDay: "Custom day", dashboard: "Dashboard", delete: "Delete", edit: "Edit", emptyRecords: "No spending records yet", emptyWishlist: "No wishlist items yet", firstDay: "First day of every month", fundedByLeftover: "Funded by leftover budget", fundingCategory: "Funding category", goals: "Goals", history: "History", home: "Home", keepRecords: "Keep all records and reset remaining budget", language: "Language", lastDay: "Last day of every month", left: "left", localDevice: "Local device", manageCategories: "Manage categories", monthlyBudget: "Monthly budget", monthlyCategoryBudget: "Monthly category budget", monthlyPlan: "Monthly plan", monthlyTotalBudget: "Monthly total budget", name: "Name", nextUnlock: "Next unlock", note: "Note", off: "Off", plannedBudgetLine: "gray = budget plan", price: "Price", records: "Records", resetRules: "Reset rules", savedRecords: "Saved records", saveCategories: "Save categories", saveSettings: "Save settings", saveWishlistItem: "Save wishlist item", settings: "Settings", spendingTrend: "Spending over time", subtractFromBudget: "Subtract from budget", subtractSpending: "Subtract spending", targetMonths: "Target months", thingsToBuy: "Things to buy", today: "Today", totalRemaining: "Total remaining", totalSpending: "Total spending", whenRefreshed: "When refreshed", wishlist: "Wishlist",
   },
   zh: {
-    add: "＋ 添加", addWishlistItem: "添加心愿", appTitle: "预算血条", amount: "金额", archiveRecords: "按月份归档记录", autoRefreshBudget: "自动刷新预算", availableToSave: "可存下", budgetDeviation: "偏离预算", budgetLeft: "剩余预算", cashRunway: "花费节奏", categories: "分类", comparedWithPlan: "相对计划", controls: "设置", currency: "货币", currentCategoryLeft: "当前分类剩余", customDay: "自定义日期", dashboard: "分析", edit: "编辑", emptyRecords: "还没有消费记录", emptyWishlist: "还没有心愿单", firstDay: "每月第一天", fundedByLeftover: "由分类剩余预算推进", fundingCategory: "绑定分类", goals: "目标", history: "历史", home: "首页", keepRecords: "保留所有记录并重置剩余预算", language: "语言", lastDay: "每月最后一天", left: "剩余", localDevice: "本机保存", manageCategories: "管理分类", monthlyBudget: "月度预算", monthlyCategoryBudget: "每月分类预算", monthlyPlan: "月度计划", monthlyTotalBudget: "每月总预算", name: "名称", nextUnlock: "下一个解锁", note: "备注", off: "关闭", plannedBudgetLine: "灰线=预算基准", price: "价格", records: "记录", resetRules: "刷新规则", savedRecords: "已保存记录", saveCategories: "保存分类", saveSettings: "保存设置", saveWishlistItem: "保存心愿", settings: "设置", spendingTrend: "消费金额走势", subtractFromBudget: "扣除预算", subtractSpending: "记录消费", targetMonths: "几个月买到", thingsToBuy: "想买的东西", today: "今天", totalRemaining: "总剩余", totalSpending: "总消费", whenRefreshed: "刷新时", wishlist: "心愿单",
+    add: "＋ 添加", addWishlistItem: "添加心愿", appTitle: "预算血条", amount: "金额", archiveRecords: "按月份归档记录", autoRefreshBudget: "自动刷新预算", availableToSave: "可存下", budgetDeviation: "偏离预算", budgetLeft: "剩余预算", cashRunway: "花费节奏", categories: "分类", comparedWithPlan: "相对计划", controls: "设置", currency: "货币", currentCategoryLeft: "当前分类剩余", customDay: "自定义日期", dashboard: "分析", delete: "删除", edit: "编辑", emptyRecords: "还没有消费记录", emptyWishlist: "还没有心愿单", firstDay: "每月第一天", fundedByLeftover: "由分类剩余预算推进", fundingCategory: "绑定分类", goals: "目标", history: "历史", home: "首页", keepRecords: "保留所有记录并重置剩余预算", language: "语言", lastDay: "每月最后一天", left: "剩余", localDevice: "本机保存", manageCategories: "管理分类", monthlyBudget: "月度预算", monthlyCategoryBudget: "每月分类预算", monthlyPlan: "月度计划", monthlyTotalBudget: "每月总预算", name: "名称", nextUnlock: "下一个解锁", note: "备注", off: "关闭", plannedBudgetLine: "灰线=预算基准", price: "价格", records: "记录", resetRules: "刷新规则", savedRecords: "已保存记录", saveCategories: "保存分类", saveSettings: "保存设置", saveWishlistItem: "保存心愿", settings: "设置", spendingTrend: "消费金额走势", subtractFromBudget: "扣除预算", subtractSpending: "记录消费", targetMonths: "几个月买到", thingsToBuy: "想买的东西", today: "今天", totalRemaining: "总剩余", totalSpending: "总消费", whenRefreshed: "刷新时", wishlist: "心愿单",
   },
 };
 
@@ -535,7 +535,10 @@ function closeWishSheet() {
 }
 
 function getSavedRecords() {
-  return JSON.parse(localStorage.getItem("budgetHpRecords") || "[]");
+  return JSON.parse(localStorage.getItem("budgetHpRecords") || "[]").map((record) => ({
+    id: record.id || createId(),
+    ...record,
+  }));
 }
 
 function saveRecords(records) {
@@ -653,12 +656,16 @@ function renderSavedWishes() {
 
 function renderRecord(record) {
   const item = document.createElement("article");
+  item.dataset.recordId = record.id;
   item.innerHTML = `
     <div>
       <strong></strong>
       <span></span>
     </div>
-    <em></em>
+    <div class="record-actions">
+      <em></em>
+      <button class="mini-button danger" type="button" data-delete-record></button>
+    </div>
   `;
   const date = getRecordDate(record);
   const label = currentLanguage === "zh"
@@ -667,6 +674,7 @@ function renderRecord(record) {
   item.querySelector("strong").textContent = record.note || (currentLanguage === "zh" ? "消费" : "Spending");
   item.querySelector("span").textContent = `${record.category} · ${label}`;
   item.querySelector("em").textContent = `−${record.amount}`;
+  item.querySelector("[data-delete-record]").textContent = t("delete");
   return item;
 }
 
@@ -681,6 +689,14 @@ function renderSavedRecords() {
     return;
   }
   records.forEach((record) => recordList.prepend(renderRecord(record)));
+}
+
+function refreshMoneyViews() {
+  renderSavedRecords();
+  renderHeroBudget(getSettings(), getCategoriesWithBalances());
+  renderHomeCategories(getCategoriesWithBalances());
+  renderSavedWishes();
+  setRange(currentRange);
 }
 
 function setRange(range) {
@@ -857,6 +873,15 @@ wishList.addEventListener("click", (event) => {
   openWishSheet(wish);
 });
 
+recordList.addEventListener("click", (event) => {
+  const deleteButton = event.target.closest("[data-delete-record]");
+  if (!deleteButton) return;
+  const record = deleteButton.closest("[data-record-id]");
+  if (!record) return;
+  saveRecords(getSavedRecords().filter((item) => item.id !== record.dataset.recordId));
+  refreshMoneyViews();
+});
+
 saveRecordButton.addEventListener("click", () => {
   const amount = document.querySelector(".amount-field input").value.trim() || "$0";
   const note = document.querySelector(".note-field input").value.trim();
@@ -864,6 +889,7 @@ saveRecordButton.addEventListener("click", () => {
   if (!activeCategory) return;
   const category = activeCategory.textContent.trim();
   const record = {
+    id: createId(),
     amount: formatMoney(parseMoney(amount)),
     note,
     category,
@@ -873,11 +899,7 @@ saveRecordButton.addEventListener("click", () => {
   const records = getSavedRecords();
   records.push(record);
   saveRecords(records);
-  renderSavedRecords();
-  renderHeroBudget(getSettings(), getCategoriesWithBalances());
-  renderHomeCategories(getCategoriesWithBalances());
-  renderSavedWishes();
-  setRange(currentRange);
+  refreshMoneyViews();
   closeSheet();
   setView("records");
 });
