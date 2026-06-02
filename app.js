@@ -205,9 +205,20 @@ function getRangeMonths(range) {
 }
 
 function getRangeWindow(range, date = new Date()) {
+  const end = date;
+  if (range === "ALL") {
+    const records = getSavedRecords();
+    const earliest = records.reduce((min, record) => {
+      const recordDate = getRecordDate(record);
+      return recordDate < min ? recordDate : min;
+    }, date);
+    const start = records.length ? earliest : date;
+    return { start, end, months: getRangeMonths(range) };
+  }
+
   const months = getRangeMonths(range);
-  const start = new Date(date.getFullYear(), date.getMonth() - months + 1, 1);
-  const end = new Date(date.getFullYear(), date.getMonth() + 1, 0, 23, 59, 59, 999);
+  const start = new Date(date);
+  start.setMonth(start.getMonth() - months);
   return { start, end, months };
 }
 
@@ -423,11 +434,11 @@ function getAreaPath(linePath) {
 
 function getRangeLabel(range) {
   const labels = {
-    "1M": currentLanguage === "zh" ? "当前选择：1个月" : "1 month selected",
-    "3M": currentLanguage === "zh" ? "当前选择：3个月" : "3 months selected",
-    "6M": currentLanguage === "zh" ? "当前选择：6个月" : "6 months selected",
-    "1Y": currentLanguage === "zh" ? "当前选择：1年" : "1 year selected",
-    ALL: currentLanguage === "zh" ? "当前选择：全部" : "All time selected",
+    "1M": currentLanguage === "zh" ? "过去1个月" : "Past 1 month",
+    "3M": currentLanguage === "zh" ? "过去3个月" : "Past 3 months",
+    "6M": currentLanguage === "zh" ? "过去6个月" : "Past 6 months",
+    "1Y": currentLanguage === "zh" ? "过去1年" : "Past 1 year",
+    ALL: currentLanguage === "zh" ? "全部历史" : "All history",
   };
   return labels[range] || labels["1M"];
 }
