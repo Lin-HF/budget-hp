@@ -48,10 +48,10 @@ const defaultWishes = [
 
 const translations = {
   en: {
-    add: "＋ Add", addWishlistItem: "Add wishlist item", afterSpending: "after spending", amount: "Amount", archiveRecords: "Archive records by month", autoRefreshBudget: "Auto refresh budget", budgetLeft: "Budget left", cashRunway: "Cash runway", categories: "Categories", computerFund: "Computer fund", controls: "Controls", currency: "Currency", currentCategoryLeft: "Current category left", customDay: "Custom day", dashboard: "Dashboard", edit: "Edit", firstDay: "First day of every month", fundedByLeftover: "Funded by leftover budget", fundingCategory: "Funding category", goalGap: "Goal gap", goals: "Goals", history: "History", home: "Home", keepRecords: "Keep all records and reset remaining budget", language: "Language", lastDay: "Last day of every month", left: "left", localDevice: "Local device", manageCategories: "Manage categories", mayBudget: "May Budget", monthlyBudget: "Monthly budget", monthlyCategoryBudget: "Monthly category budget", monthlyTotalBudget: "Monthly total budget", name: "Name", nextUnlock: "Next unlock", note: "Note", off: "Off", price: "Price", records: "Records", remainingOverTime: "Remaining budget over time", resetRules: "Reset rules", savedRecords: "Saved records", saveCategories: "Save categories", saveSettings: "Save settings", saveWishlistItem: "Save wishlist item", settings: "Settings", subtractFromBudget: "Subtract from budget", subtractSpending: "Subtract spending", tapRow: "Tap a row later for detail", targetMonths: "Target months", thingsToBuy: "Things to buy", today: "Today", totalRemaining: "Total remaining", totalSpending: "Total spending", whenRefreshed: "When refreshed", wishlist: "Wishlist",
+    add: "＋ Add", addWishlistItem: "Add wishlist item", appTitle: "Budget HP", amount: "Amount", archiveRecords: "Archive records by month", autoRefreshBudget: "Auto refresh budget", availableToSave: "available to save", budgetDeviation: "Budget deviation", budgetLeft: "Budget left", cashRunway: "Spending pace", categories: "Categories", comparedWithPlan: "compared with plan", controls: "Controls", currency: "Currency", currentCategoryLeft: "Current category left", customDay: "Custom day", dashboard: "Dashboard", edit: "Edit", firstDay: "First day of every month", fundedByLeftover: "Funded by leftover budget", fundingCategory: "Funding category", goals: "Goals", history: "History", home: "Home", keepRecords: "Keep all records and reset remaining budget", language: "Language", lastDay: "Last day of every month", left: "left", localDevice: "Local device", manageCategories: "Manage categories", monthlyBudget: "Monthly budget", monthlyCategoryBudget: "Monthly category budget", monthlyPlan: "Monthly plan", monthlyTotalBudget: "Monthly total budget", name: "Name", nextUnlock: "Next unlock", note: "Note", off: "Off", plannedBudgetLine: "gray = budget plan", price: "Price", records: "Records", resetRules: "Reset rules", savedRecords: "Saved records", saveCategories: "Save categories", saveSettings: "Save settings", saveWishlistItem: "Save wishlist item", settings: "Settings", spendingTrend: "Spending over time", subtractFromBudget: "Subtract from budget", subtractSpending: "Subtract spending", targetMonths: "Target months", thingsToBuy: "Things to buy", today: "Today", totalRemaining: "Total remaining", totalSpending: "Total spending", whenRefreshed: "When refreshed", wishlist: "Wishlist",
   },
   zh: {
-    add: "＋ 添加", addWishlistItem: "添加心愿", afterSpending: "扣除消费后", amount: "金额", archiveRecords: "按月份归档记录", autoRefreshBudget: "自动刷新预算", budgetLeft: "剩余预算", cashRunway: "预算续航", categories: "分类", computerFund: "电脑基金", controls: "控制", currency: "货币", currentCategoryLeft: "当前分类剩余", customDay: "自定义日期", dashboard: "仪表盘", edit: "编辑", firstDay: "每月第一天", fundedByLeftover: "由分类剩余预算推进", fundingCategory: "绑定分类", goalGap: "目标差额", goals: "目标", history: "历史", home: "首页", keepRecords: "保留所有记录并重置剩余预算", language: "语言", lastDay: "每月最后一天", left: "剩余", localDevice: "本机保存", manageCategories: "管理分类", mayBudget: "五月预算", monthlyBudget: "月度预算", monthlyCategoryBudget: "每月分类预算", monthlyTotalBudget: "每月总预算", name: "名称", nextUnlock: "下一个解锁", note: "备注", off: "关闭", price: "价格", records: "记录", remainingOverTime: "剩余预算走势", resetRules: "重置规则", savedRecords: "已保存记录", saveCategories: "保存分类", saveSettings: "保存设置", saveWishlistItem: "保存心愿", settings: "设置", subtractFromBudget: "从预算扣除", subtractSpending: "扣除消费", tapRow: "之后可点进分类详情", targetMonths: "几个月买到", thingsToBuy: "想买的东西", today: "今天", totalRemaining: "总剩余", totalSpending: "总消费", whenRefreshed: "刷新时", wishlist: "心愿单",
+    add: "＋ 添加", addWishlistItem: "添加心愿", appTitle: "预算血条", amount: "金额", archiveRecords: "按月份归档记录", autoRefreshBudget: "自动刷新预算", availableToSave: "可存下", budgetDeviation: "偏离预算", budgetLeft: "剩余预算", cashRunway: "花费节奏", categories: "分类", comparedWithPlan: "相对计划", controls: "设置", currency: "货币", currentCategoryLeft: "当前分类剩余", customDay: "自定义日期", dashboard: "分析", edit: "编辑", firstDay: "每月第一天", fundedByLeftover: "由分类剩余预算推进", fundingCategory: "绑定分类", goals: "目标", history: "历史", home: "首页", keepRecords: "保留所有记录并重置剩余预算", language: "语言", lastDay: "每月最后一天", left: "剩余", localDevice: "本机保存", manageCategories: "管理分类", monthlyBudget: "月度预算", monthlyCategoryBudget: "每月分类预算", monthlyPlan: "月度计划", monthlyTotalBudget: "每月总预算", name: "名称", nextUnlock: "下一个解锁", note: "备注", off: "关闭", plannedBudgetLine: "灰线=预算基准", price: "价格", records: "记录", resetRules: "刷新规则", savedRecords: "已保存记录", saveCategories: "保存分类", saveSettings: "保存设置", saveWishlistItem: "保存心愿", settings: "设置", spendingTrend: "消费金额走势", subtractFromBudget: "扣除预算", subtractSpending: "记录消费", targetMonths: "几个月买到", thingsToBuy: "想买的东西", today: "今天", totalRemaining: "总剩余", totalSpending: "总消费", whenRefreshed: "刷新时", wishlist: "心愿单",
   },
 };
 
@@ -72,7 +72,8 @@ function applyLanguage(language) {
   });
   languageSelect.value = language;
   renderBudgetMonthLabel();
-  renderDashboardCategories(getSavedCategories(), currentRange);
+  renderHeroBudget(getSettings(), getSavedCategories());
+  setRange(currentRange);
 }
 
 function parseMoney(value) {
@@ -205,7 +206,9 @@ function renderHeroBudget(settings = getSettings(), categories = getSavedCategor
   const spent = Math.max(budget - left, 0);
   const percent = budget > 0 ? Math.min(Math.round((left / budget) * 100), 100) : 0;
   heroLeft.textContent = formatMoney(left);
-  heroSubline.textContent = `${formatMoney(spent)} spent of ${formatMoney(budget)} monthly budget`;
+  heroSubline.textContent = currentLanguage === "zh"
+    ? `本月已花 ${formatMoney(spent)} / 月预算 ${formatMoney(budget)}`
+    : `${formatMoney(spent)} spent of ${formatMoney(budget)} monthly budget`;
   heroPercent.textContent = `${percent}%`;
   heroBar.style.width = `${percent}%`;
 }
@@ -296,7 +299,7 @@ function getRangeMultiplier(range) {
 
 function renderDashboardCategories(categories, range = currentRange) {
   reserveList.innerHTML = "";
-  const series = [{ key: "total", label: currentLanguage === "zh" ? "总盈余" : "Total surplus" }]
+  const series = [{ key: "total", label: currentLanguage === "zh" ? "总消费" : "Total spending" }]
     .concat(categories.map((category) => ({
       key: category.name,
       label: `${category.icon || "♡"} ${category.name}`,
@@ -334,42 +337,85 @@ function renderCategoryChoices(categories) {
 }
 
 function getCategoryChartPath(categoryName, range) {
-  const categories = getSavedCategories();
-  const index = Math.max(categories.findIndex((category) => category.name === categoryName), 0);
-  const offset = index * 12 + getRangeMultiplier(range) * 3;
-  const start = 118 - offset % 36;
-  const midA = 82 + offset % 42;
-  const midB = 128 - offset % 58;
-  const end = 60 + offset % 60;
-  return `M10 ${start} C50 ${start - 26} 78 ${midA + 28} 116 ${midA} C154 ${midA - 32} 178 ${midB + 22} 214 ${midB} C254 ${midB - 28} 288 ${end + 20} 330 ${end}`;
+  return getSpendingChart(categoryName, range).actualPath;
 }
 
 function getAreaPath(linePath) {
   return `${linePath} L330 160 L10 160 Z`;
 }
 
+function getRangeLabel(range) {
+  const labels = {
+    "1M": currentLanguage === "zh" ? "当前选择：1个月" : "1 month selected",
+    "3M": currentLanguage === "zh" ? "当前选择：3个月" : "3 months selected",
+    "6M": currentLanguage === "zh" ? "当前选择：6个月" : "6 months selected",
+    "1Y": currentLanguage === "zh" ? "当前选择：1年" : "1 year selected",
+    ALL: currentLanguage === "zh" ? "当前选择：全部" : "All time selected",
+  };
+  return labels[range] || labels["1M"];
+}
+
+function getSeriesBudget(series) {
+  if (series === "total") return Number(getSettings().monthlyBudget) || 0;
+  const category = getSavedCategories().find((item) => item.name === series);
+  return Number(category?.budget) || 0;
+}
+
+function getSeriesSpent(series) {
+  if (series === "total") {
+    const settings = getSettings();
+    const left = getSavedCategories().reduce((sum, category) => sum + (Number(category.left) || 0), 0);
+    return Math.max((Number(settings.monthlyBudget) || 0) - left, 0);
+  }
+  const category = getSavedCategories().find((item) => item.name === series);
+  return Math.max((Number(category?.budget) || 0) - (Number(category?.left) || 0), 0);
+}
+
+function pointsToPath(points) {
+  return points.map((point, index) => `${index === 0 ? "M" : "L"}${point[0]} ${point[1]}`).join(" ");
+}
+
+function getSpendingChart(series, range) {
+  const multiplier = getRangeMultiplier(range);
+  const budget = getSeriesBudget(series) * multiplier;
+  const currentSpent = getSeriesSpent(series);
+  const actualSpent = Math.max(currentSpent * multiplier, 0);
+  const limit = Math.max(budget, actualSpent, 1);
+  const toY = (value) => 148 - Math.min(value / limit, 1.15) * 106;
+  const x = [10, 74, 138, 202, 266, 330];
+  const shape = series === "total" ? [0, 0.14, 0.28, 0.46, 0.7, 1] : [0, 0.1, 0.22, 0.5, 0.72, 1];
+  const actualPoints = x.map((pointX, index) => [pointX, Math.max(toY(actualSpent * shape[index]), 28)]);
+  const planPoints = x.map((pointX, index) => [pointX, toY(budget * (index / (x.length - 1)))]);
+  return {
+    actualPath: pointsToPath(actualPoints),
+    planPath: pointsToPath(planPoints),
+    point: actualPoints.at(-1),
+    spent: actualSpent,
+    budget,
+    deviation: actualSpent - budget,
+  };
+}
+
 function renderChartSeries(series, range = currentRange) {
-  const data = rangeData[range];
   const categories = getSavedCategories();
   const category = categories.find((item) => item.name === series);
-  const path = series === "total" ? data.path : getCategoryChartPath(series, range);
+  const chart = getSpendingChart(series, range);
+  const path = chart.actualPath;
   const label = series === "total"
-    ? (currentLanguage === "zh" ? "总盈余走势" : "Total surplus trend")
+    ? (currentLanguage === "zh" ? "总消费走势" : "Total spending trend")
     : `${category?.icon || "♡"} ${series}`;
-  const value = series === "total"
-    ? data.trend
-    : `${formatMoney((category?.left || 0) * getRangeMultiplier(range))} ${currentLanguage === "zh" ? "剩余" : "left"}`;
+  const value = currentLanguage === "zh"
+    ? `${formatMoney(chart.spent)} / ${formatMoney(chart.budget)}`
+    : `${formatMoney(chart.spent)} / ${formatMoney(chart.budget)}`;
 
-  document.querySelector('[data-i18n="remainingOverTime"]').textContent = label;
+  document.querySelector('[data-i18n="spendingTrend"]').textContent = label;
   document.querySelector('[data-stat="trend"]').textContent = value;
   document.querySelector(".chart-line").setAttribute("d", path);
   document.querySelector(".chart-area").setAttribute("d", getAreaPath(path));
+  document.querySelector(".plan-line").setAttribute("d", chart.planPath);
 
-  const matches = [...path.matchAll(/[-\d.]+/g)].map((match) => Number(match[0]));
-  const endX = matches.at(-2) || 330;
-  const endY = matches.at(-1) || 42;
-  document.querySelector(".line-chart circle").setAttribute("cx", endX);
-  document.querySelector(".line-chart circle").setAttribute("cy", endY);
+  document.querySelector(".line-chart circle").setAttribute("cx", chart.point[0]);
+  document.querySelector(".line-chart circle").setAttribute("cy", chart.point[1]);
 
   reserveList.querySelectorAll("[data-chart-series]").forEach((button) => {
     button.classList.toggle("active", button.dataset.chartSeries === series);
@@ -379,9 +425,9 @@ function renderChartSeries(series, range = currentRange) {
 function applyCategories(categories) {
   renderCategoryEditor(categories);
   renderHomeCategories(categories);
-  renderDashboardCategories(categories);
   renderCategoryChoices(categories);
   renderHeroBudget(getSettings(), categories);
+  setRange(currentRange);
 }
 
 const rangeData = {
@@ -624,12 +670,28 @@ function renderSavedRecords() {
 
 function setRange(range) {
   currentRange = range;
-  const data = rangeData[range];
-  document.querySelector('[data-stat="spending"]').textContent = data.spending;
-  document.querySelector('[data-stat="surplus"]').textContent = data.surplus;
-  document.querySelector('[data-stat="goal"]').textContent = data.goal;
-  document.querySelector('[data-stat="goalLine"]').textContent = data.goalLine;
-  document.querySelector('[data-stat="goalHint"]').textContent = data.goalHint;
+  const multiplier = getRangeMultiplier(range);
+  const settings = getSettings();
+  const categories = getSavedCategories();
+  const monthlyBudget = Number(settings.monthlyBudget) || 0;
+  const monthlyLeft = categories.reduce((sum, category) => sum + (Number(category.left) || 0), 0);
+  const monthlySpent = Math.max(monthlyBudget - monthlyLeft, 0);
+  const planned = monthlyBudget * multiplier;
+  const spent = monthlySpent * multiplier;
+  const left = Math.max(planned - spent, 0);
+  const deviation = spent - planned;
+  document.querySelector('[data-stat="spending"]').textContent = formatMoney(spent);
+  document.querySelector('[data-stat="surplus"]').textContent = formatMoney(left);
+  document.querySelector('[data-stat="goal"]').textContent = deviation <= 0
+    ? currentLanguage === "zh" ? `低于 ${formatMoney(Math.abs(deviation))}` : `${formatMoney(Math.abs(deviation))} under`
+    : currentLanguage === "zh" ? `超出 ${formatMoney(deviation)}` : `${formatMoney(deviation)} over`;
+  document.querySelector('[data-stat="goalLine"]').textContent = currentLanguage === "zh"
+    ? `${getRangeLabel(range)} · 计划 ${formatMoney(planned)}`
+    : `${getRangeLabel(range)} · ${formatMoney(planned)} planned`;
+  document.querySelector('[data-stat="goalHint"]').textContent = currentLanguage === "zh"
+    ? `实际 ${formatMoney(spent)}`
+    : `Actual ${formatMoney(spent)}`;
+  document.querySelector('[data-stat="rangeLabel"]').textContent = getRangeLabel(range);
 
   renderDashboardCategories(getSavedCategories(), range);
 
@@ -742,6 +804,7 @@ saveSettingsButton.addEventListener("click", () => {
   renderSettings(settings);
   renderBudgetMonthLabel();
   renderHeroBudget(settings, getSavedCategories());
+  setRange(currentRange);
   setView("home");
 });
 

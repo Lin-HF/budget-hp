@@ -659,6 +659,14 @@ h3 {
   stroke-width: 6;
 }
 
+.plan-line {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.42);
+  stroke-dasharray: 8 8;
+  stroke-linecap: round;
+  stroke-width: 3;
+}
+
 .zero-line {
   stroke: rgba(255, 255, 255, 0.12);
   stroke-dasharray: 5 7;

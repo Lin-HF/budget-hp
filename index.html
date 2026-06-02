@@ -19,7 +19,7 @@
         overflow-x: hidden;
       }
     </style>
-    <link rel="stylesheet" href="./styles.css?v=20260601-6" />
+    <link rel="stylesheet" href="./styles.css?v=20260601-7" />
   </head>
   <body>
     <main class="app-shell" aria-label="Budget dashboard prototype" data-active-view="home">
@@ -27,7 +27,7 @@
         <header class="topbar">
           <div>
             <p class="eyebrow" data-budget-month-label>May Budget</p>
-            <h1>Budget HP</h1>
+            <h1 data-i18n="appTitle">Budget HP</h1>
           </div>
           <button class="icon-button" type="button" aria-label="Open settings" data-tab-target="settings">
             <span aria-hidden="true">⚙</span>
@@ -166,21 +166,21 @@
             <article class="metric-card">
               <p data-i18n="totalSpending">Total spending</p>
               <strong data-stat="spending">$716</strong>
-              <span>1M selected</span>
+              <span data-stat="rangeLabel">1 month selected</span>
             </article>
             <article class="metric-card">
               <p data-i18n="budgetLeft">Budget left</p>
               <strong data-stat="surplus">$1,284</strong>
-              <span>available to save</span>
+              <span data-i18n="availableToSave">available to save</span>
             </article>
             <article class="metric-card">
-              <p data-i18n="goalGap">Goal gap</p>
+              <p data-i18n="budgetDeviation">Budget deviation</p>
               <strong data-stat="goal">$716</strong>
-              <span>computer target</span>
+              <span data-i18n="comparedWithPlan">compared with plan</span>
             </article>
             <article class="metric-card goal-card">
               <div>
-                <p class="muted" data-i18n="computerFund">Computer fund</p>
+                <p class="muted" data-i18n="monthlyPlan">Monthly plan</p>
                 <strong data-stat="goalLine">$1,284 saved toward $2,000</strong>
               </div>
               <span data-stat="goalHint">4 months left at $200/mo</span>
@@ -190,12 +190,12 @@
           <div class="chart-card">
             <div class="chart-header">
               <div>
-                <p class="muted" data-i18n="remainingOverTime">Remaining budget over time</p>
+                <p class="muted" data-i18n="spendingTrend">Spending over time</p>
                 <strong data-stat="trend">$1,284 left</strong>
               </div>
-              <span data-i18n="afterSpending">after spending</span>
+              <span data-i18n="plannedBudgetLine">gray line is planned budget</span>
             </div>
-            <svg class="line-chart" viewBox="0 0 340 170" role="img" aria-label="Remaining budget line chart">
+            <svg class="line-chart" viewBox="0 0 340 170" role="img" aria-label="Spending compared with budget plan line chart">
               <defs>
                 <linearGradient id="lineGradient" x1="0" x2="1" y1="0" y2="0">
                   <stop offset="0%" stop-color="#29d182" />
@@ -208,8 +208,9 @@
                 </linearGradient>
               </defs>
               <path class="chart-area" d="M10 116 C56 92 70 122 112 84 C148 50 176 78 210 60 C250 36 282 66 330 42 L330 160 L10 160 Z" />
+              <path class="plan-line" d="M10 148 L330 42" />
               <path class="chart-line" d="M10 116 C56 92 70 122 112 84 C148 50 176 78 210 60 C250 36 282 66 330 42" />
-              <line class="zero-line" x1="10" y1="132" x2="330" y2="132" />
+              <line class="zero-line" x1="10" y1="148" x2="330" y2="148" />
               <circle cx="330" cy="42" r="5" />
             </svg>
           </div>
@@ -497,6 +498,6 @@
       </section>
     </main>
 
-    <script src="./app.js?v=20260601-6"></script>
+    <script src="./app.js?v=20260601-7"></script>
   </body>
 </html>
