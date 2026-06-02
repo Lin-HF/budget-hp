@@ -22,12 +22,15 @@
 }
 
 html {
+  width: 100%;
   min-height: 100%;
   background: var(--bg);
   overflow-x: hidden;
 }
 
 body {
+  width: 100%;
+  max-width: 100%;
   min-height: 100%;
   margin: 0;
   color: var(--text);
@@ -50,7 +53,8 @@ button {
 
 .app-shell {
   position: relative;
-  width: min(100%, var(--app-width));
+  width: 100%;
+  max-width: var(--app-width);
   min-height: 100svh;
   margin: 0 auto;
   padding: max(18px, env(safe-area-inset-top)) 18px calc(152px + env(safe-area-inset-bottom));
@@ -134,6 +138,7 @@ h3 {
 .records-panel,
 .wishlist-strip,
 .wishlist-panel {
+  max-width: 100%;
   border: 1px solid var(--line);
   border-radius: 22px;
   background: rgba(17, 27, 22, 0.82);
@@ -429,6 +434,7 @@ h3 {
   overflow-x: auto;
   overflow-y: hidden;
   padding: 0 0 4px;
+  contain: layout paint;
   scroll-padding: 0;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
@@ -655,6 +661,7 @@ h3 {
   display: flex;
   flex-wrap: nowrap;
   gap: 8px;
+  max-width: 100%;
   margin-top: 12px;
   overflow-x: auto;
   padding-bottom: 4px;
@@ -1052,7 +1059,7 @@ select {
   }
 }
 
-@media (min-width: 720px) {
+@media (min-width: 720px) and (hover: hover) and (pointer: fine) {
   :root {
     --app-width: 680px;
     --nav-width: 642px;
