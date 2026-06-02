@@ -61,7 +61,14 @@ button {
 
 .screen {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 16px;
+  min-width: 0;
+}
+
+.screen > * {
+  min-width: 0;
+  width: 100%;
 }
 
 .hidden {
@@ -136,6 +143,8 @@ h3 {
 .records-panel,
 .wishlist-strip,
 .wishlist-panel {
+  width: 100%;
+  min-width: 0;
   max-width: 100%;
   border: 1px solid var(--line);
   border-radius: 22px;
@@ -166,6 +175,7 @@ h3 {
 .hero-copy,
 .hp-orb,
 .hp-track {
+  min-width: 0;
   position: relative;
   z-index: 1;
 }
@@ -174,6 +184,7 @@ h3 {
   display: flex;
   align-items: baseline;
   gap: 8px;
+  min-width: 0;
   margin-top: 7px;
 }
 
@@ -300,9 +311,10 @@ h3 {
 
 .category-row {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 9px 12px;
   align-items: center;
+  min-width: 0;
   min-height: 64px;
   padding: 13px;
   border: 1px solid var(--line);
@@ -427,6 +439,7 @@ h3 {
   grid-auto-columns: 100%;
   grid-auto-flow: column;
   gap: 12px;
+  min-width: 0;
   width: 100%;
   max-width: 100%;
   overflow-x: auto;
@@ -454,6 +467,7 @@ h3 {
 }
 
 .metric-card {
+  min-width: 0;
   min-height: 96px;
   padding: 14px;
   border: 1px solid var(--line);
@@ -516,9 +530,10 @@ h3 {
 
 .wish-card {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 10px 12px;
   align-items: center;
+  min-width: 0;
   padding: 14px;
   border: 1px solid var(--line);
   border-radius: 17px;
