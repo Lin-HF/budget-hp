@@ -1024,6 +1024,14 @@ select {
   gap: 10px;
 }
 
+.empty-state {
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 18px 4px;
+}
+
 .record-list article {
   display: flex;
   align-items: center;

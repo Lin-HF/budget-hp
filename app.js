@@ -34,28 +34,22 @@ const budgetMonthLabel = document.querySelector("[data-budget-month-label]");
 let editingWishId = null;
 
 const defaultCategories = [
-  { icon: "🎬", name: "Entertainment", budget: 300, left: 180, tone: "entertainment" },
-  { icon: "🎮", name: "Games", budget: 220, left: 70, tone: "games" },
-  { icon: "🐾", name: "Pets", budget: 320, left: 240, tone: "pets" },
-  { icon: "🛒", name: "Life", budget: 650, left: 430, tone: "life" },
-];
-
-const defaultWishes = [
-  { id: "default-game", name: "New game", category: "Games", price: "$100", available: "$70", monthly: "$30", createdAt: "default" },
-  { id: "default-computer", name: "Computer", category: "Life", price: "$2,000", available: "$1,284", monthly: "$200", createdAt: "default" },
-  { id: "default-headphones", name: "Headphones", category: "Entertainment", price: "$260", available: "$180", monthly: "$80", createdAt: "default" },
+  { icon: "🎬", name: "娱乐", budget: 300, left: 300, tone: "entertainment" },
+  { icon: "🎮", name: "游戏", budget: 220, left: 220, tone: "games" },
+  { icon: "🐾", name: "宠物", budget: 320, left: 320, tone: "pets" },
+  { icon: "🛒", name: "生活", budget: 1160, left: 1160, tone: "life" },
 ];
 
 const translations = {
   en: {
-    add: "＋ Add", addWishlistItem: "Add wishlist item", appTitle: "Budget HP", amount: "Amount", archiveRecords: "Archive records by month", autoRefreshBudget: "Auto refresh budget", availableToSave: "available to save", budgetDeviation: "Budget deviation", budgetLeft: "Budget left", cashRunway: "Spending pace", categories: "Categories", comparedWithPlan: "compared with plan", controls: "Controls", currency: "Currency", currentCategoryLeft: "Current category left", customDay: "Custom day", dashboard: "Dashboard", edit: "Edit", firstDay: "First day of every month", fundedByLeftover: "Funded by leftover budget", fundingCategory: "Funding category", goals: "Goals", history: "History", home: "Home", keepRecords: "Keep all records and reset remaining budget", language: "Language", lastDay: "Last day of every month", left: "left", localDevice: "Local device", manageCategories: "Manage categories", monthlyBudget: "Monthly budget", monthlyCategoryBudget: "Monthly category budget", monthlyPlan: "Monthly plan", monthlyTotalBudget: "Monthly total budget", name: "Name", nextUnlock: "Next unlock", note: "Note", off: "Off", plannedBudgetLine: "gray = budget plan", price: "Price", records: "Records", resetRules: "Reset rules", savedRecords: "Saved records", saveCategories: "Save categories", saveSettings: "Save settings", saveWishlistItem: "Save wishlist item", settings: "Settings", spendingTrend: "Spending over time", subtractFromBudget: "Subtract from budget", subtractSpending: "Subtract spending", targetMonths: "Target months", thingsToBuy: "Things to buy", today: "Today", totalRemaining: "Total remaining", totalSpending: "Total spending", whenRefreshed: "When refreshed", wishlist: "Wishlist",
+    add: "＋ Add", addWishlistItem: "Add wishlist item", appTitle: "Budget HP", amount: "Amount", archiveRecords: "Archive records by month", autoRefreshBudget: "Auto refresh budget", availableToSave: "available to save", budgetDeviation: "Budget deviation", budgetLeft: "Budget left", cashRunway: "Spending pace", categories: "Categories", comparedWithPlan: "compared with plan", controls: "Controls", currency: "Currency", currentCategoryLeft: "Current category left", customDay: "Custom day", dashboard: "Dashboard", edit: "Edit", emptyRecords: "No spending records yet", emptyWishlist: "No wishlist items yet", firstDay: "First day of every month", fundedByLeftover: "Funded by leftover budget", fundingCategory: "Funding category", goals: "Goals", history: "History", home: "Home", keepRecords: "Keep all records and reset remaining budget", language: "Language", lastDay: "Last day of every month", left: "left", localDevice: "Local device", manageCategories: "Manage categories", monthlyBudget: "Monthly budget", monthlyCategoryBudget: "Monthly category budget", monthlyPlan: "Monthly plan", monthlyTotalBudget: "Monthly total budget", name: "Name", nextUnlock: "Next unlock", note: "Note", off: "Off", plannedBudgetLine: "gray = budget plan", price: "Price", records: "Records", resetRules: "Reset rules", savedRecords: "Saved records", saveCategories: "Save categories", saveSettings: "Save settings", saveWishlistItem: "Save wishlist item", settings: "Settings", spendingTrend: "Spending over time", subtractFromBudget: "Subtract from budget", subtractSpending: "Subtract spending", targetMonths: "Target months", thingsToBuy: "Things to buy", today: "Today", totalRemaining: "Total remaining", totalSpending: "Total spending", whenRefreshed: "When refreshed", wishlist: "Wishlist",
   },
   zh: {
-    add: "＋ 添加", addWishlistItem: "添加心愿", appTitle: "预算血条", amount: "金额", archiveRecords: "按月份归档记录", autoRefreshBudget: "自动刷新预算", availableToSave: "可存下", budgetDeviation: "偏离预算", budgetLeft: "剩余预算", cashRunway: "花费节奏", categories: "分类", comparedWithPlan: "相对计划", controls: "设置", currency: "货币", currentCategoryLeft: "当前分类剩余", customDay: "自定义日期", dashboard: "分析", edit: "编辑", firstDay: "每月第一天", fundedByLeftover: "由分类剩余预算推进", fundingCategory: "绑定分类", goals: "目标", history: "历史", home: "首页", keepRecords: "保留所有记录并重置剩余预算", language: "语言", lastDay: "每月最后一天", left: "剩余", localDevice: "本机保存", manageCategories: "管理分类", monthlyBudget: "月度预算", monthlyCategoryBudget: "每月分类预算", monthlyPlan: "月度计划", monthlyTotalBudget: "每月总预算", name: "名称", nextUnlock: "下一个解锁", note: "备注", off: "关闭", plannedBudgetLine: "灰线=预算基准", price: "价格", records: "记录", resetRules: "刷新规则", savedRecords: "已保存记录", saveCategories: "保存分类", saveSettings: "保存设置", saveWishlistItem: "保存心愿", settings: "设置", spendingTrend: "消费金额走势", subtractFromBudget: "扣除预算", subtractSpending: "记录消费", targetMonths: "几个月买到", thingsToBuy: "想买的东西", today: "今天", totalRemaining: "总剩余", totalSpending: "总消费", whenRefreshed: "刷新时", wishlist: "心愿单",
+    add: "＋ 添加", addWishlistItem: "添加心愿", appTitle: "预算血条", amount: "金额", archiveRecords: "按月份归档记录", autoRefreshBudget: "自动刷新预算", availableToSave: "可存下", budgetDeviation: "偏离预算", budgetLeft: "剩余预算", cashRunway: "花费节奏", categories: "分类", comparedWithPlan: "相对计划", controls: "设置", currency: "货币", currentCategoryLeft: "当前分类剩余", customDay: "自定义日期", dashboard: "分析", edit: "编辑", emptyRecords: "还没有消费记录", emptyWishlist: "还没有心愿单", firstDay: "每月第一天", fundedByLeftover: "由分类剩余预算推进", fundingCategory: "绑定分类", goals: "目标", history: "历史", home: "首页", keepRecords: "保留所有记录并重置剩余预算", language: "语言", lastDay: "每月最后一天", left: "剩余", localDevice: "本机保存", manageCategories: "管理分类", monthlyBudget: "月度预算", monthlyCategoryBudget: "每月分类预算", monthlyPlan: "月度计划", monthlyTotalBudget: "每月总预算", name: "名称", nextUnlock: "下一个解锁", note: "备注", off: "关闭", plannedBudgetLine: "灰线=预算基准", price: "价格", records: "记录", resetRules: "刷新规则", savedRecords: "已保存记录", saveCategories: "保存分类", saveSettings: "保存设置", saveWishlistItem: "保存心愿", settings: "设置", spendingTrend: "消费金额走势", subtractFromBudget: "扣除预算", subtractSpending: "记录消费", targetMonths: "几个月买到", thingsToBuy: "想买的东西", today: "今天", totalRemaining: "总剩余", totalSpending: "总消费", whenRefreshed: "刷新时", wishlist: "心愿单",
   },
 };
 
-let currentLanguage = localStorage.getItem("budgetHpLanguage") || "en";
+let currentLanguage = localStorage.getItem("budgetHpLanguage") || "zh";
 let currentRange = "1M";
 let currentChartSeries = "total";
 
@@ -73,6 +67,9 @@ function applyLanguage(language) {
   languageSelect.value = language;
   renderBudgetMonthLabel();
   renderHeroBudget(getSettings(), getSavedCategories());
+  renderHomeCategories(getCategoriesWithBalances());
+  renderSavedRecords();
+  renderSavedWishes();
   setRange(currentRange);
 }
 
@@ -91,7 +88,7 @@ function createId() {
 }
 
 function getCategoryByName(name) {
-  return getSavedCategories().find((category) => category.name === name);
+  return getCategoriesWithBalances().find((category) => category.name === name);
 }
 
 function getCategoryLockedAmount(categoryName, excludeWishId = null) {
@@ -145,6 +142,26 @@ function saveSettings(settings) {
   localStorage.setItem("budgetHpSettings", JSON.stringify(settings));
 }
 
+function migrateLegacyMockData() {
+  const records = JSON.parse(localStorage.getItem("budgetHpRecords") || "[]");
+  const wishes = JSON.parse(localStorage.getItem("budgetHpWishes") || "null");
+  if (Array.isArray(wishes)) {
+    const realWishes = wishes.filter((wish) => wish.createdAt !== "default" && !String(wish.id || "").startsWith("default-"));
+    if (realWishes.length !== wishes.length) saveWishes(realWishes);
+  }
+
+  const categories = JSON.parse(localStorage.getItem("budgetHpCategories") || "null");
+  const legacyCategories = ["Entertainment", "Games", "Pets", "Life"];
+  const isLegacyCategorySet = Array.isArray(categories)
+    && categories.length === 4
+    && categories.every((category, index) => category.name === legacyCategories[index])
+    && categories.reduce((sum, category) => sum + (Number(category.budget) || 0), 0) === 1490;
+
+  if (!records.length && isLegacyCategorySet) {
+    saveCategories(defaultCategories);
+  }
+}
+
 function renderSettings(settings) {
   monthlyBudgetInput.value = formatMoney(settings.monthlyBudget || 0);
   resetRuleSelect.value = settings.resetRule || "lastDay";
@@ -158,6 +175,67 @@ function getMonthKey(date) {
 function getNextMonthKey(date) {
   const next = new Date(date.getFullYear(), date.getMonth() + 1, 1);
   return getMonthKey(next);
+}
+
+function getRecordDate(record) {
+  const raw = record.createdAt || record.date;
+  const parsed = raw && raw !== "Today" ? new Date(raw) : new Date();
+  return Number.isNaN(parsed.getTime()) ? new Date() : parsed;
+}
+
+function getRecordAmount(record) {
+  return parseMoney(record.amount);
+}
+
+function getRangeMonths(range) {
+  if (range === "3M") return 3;
+  if (range === "6M") return 6;
+  if (range === "1Y") return 12;
+  if (range === "ALL") {
+    const records = getSavedRecords();
+    if (!records.length) return 1;
+    const earliest = records.reduce((min, record) => {
+      const date = getRecordDate(record);
+      return date < min ? date : min;
+    }, new Date());
+    const now = new Date();
+    return Math.max((now.getFullYear() - earliest.getFullYear()) * 12 + now.getMonth() - earliest.getMonth() + 1, 1);
+  }
+  return 1;
+}
+
+function getRangeWindow(range, date = new Date()) {
+  const months = getRangeMonths(range);
+  const start = new Date(date.getFullYear(), date.getMonth() - months + 1, 1);
+  const end = new Date(date.getFullYear(), date.getMonth() + 1, 0, 23, 59, 59, 999);
+  return { start, end, months };
+}
+
+function getRecordsForRange(range, series = "total") {
+  const { start, end } = getRangeWindow(range);
+  return getSavedRecords().filter((record) => {
+    const date = getRecordDate(record);
+    const matchesSeries = series === "total" || record.category === series;
+    return matchesSeries && date >= start && date <= end;
+  });
+}
+
+function getCurrentMonthSpent(categoryName = null) {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), now.getMonth(), 1);
+  const end = new Date(now.getFullYear(), now.getMonth() + 1, 0, 23, 59, 59, 999);
+  return getSavedRecords().reduce((sum, record) => {
+    const date = getRecordDate(record);
+    const matchesCategory = !categoryName || record.category === categoryName;
+    return matchesCategory && date >= start && date <= end ? sum + getRecordAmount(record) : sum;
+  }, 0);
+}
+
+function getCategoriesWithBalances(categories = getSavedCategories()) {
+  return categories.map((category) => ({
+    ...category,
+    left: Math.max((Number(category.budget) || 0) - getCurrentMonthSpent(category.name), 0),
+  }));
 }
 
 function getLastDayOfMonth(date) {
@@ -202,8 +280,8 @@ function resetMonthlyBudgetsIfDue(date = new Date()) {
 
 function renderHeroBudget(settings = getSettings(), categories = getSavedCategories()) {
   const budget = Math.max(Number(settings.monthlyBudget) || 0, 0);
-  const left = categories.reduce((sum, category) => sum + (Number(category.left) || 0), 0);
-  const spent = Math.max(budget - left, 0);
+  const spent = getCurrentMonthSpent();
+  const left = Math.max(budget - spent, 0);
   const percent = budget > 0 ? Math.min(Math.round((left / budget) * 100), 100) : 0;
   heroLeft.textContent = formatMoney(left);
   heroSubline.textContent = currentLanguage === "zh"
@@ -241,12 +319,11 @@ function renderCategoryEditor(categories) {
 function readCategoryEditor() {
   return [...settingsList.querySelectorAll("[data-category-item]")].map((item, index) => {
     const budget = parseMoney(item.querySelector(".category-budget-input").value);
-    const previousLeft = Number(item.dataset.left);
     return {
       icon: item.querySelector(".category-icon-input").value.trim() || "♡",
       name: item.querySelector(".category-name-input").value.trim() || "Category",
       budget,
-      left: Number.isFinite(previousLeft) ? Math.min(previousLeft, budget) : Math.round(budget * 0.6),
+      left: budget,
       tone: item.dataset.tone || defaultCategories[index]?.tone || "",
     };
   });
@@ -279,8 +356,12 @@ function renderHomeCategories(categories) {
     row.querySelector(".category-icon").textContent = category.icon || "♡";
     row.querySelector("h3").textContent = category.name;
     row.querySelector("p").textContent = locked > 0
-      ? `${formatMoney(available)} spendable · ${formatMoney(locked)} locked`
-      : `${formatMoney(category.left)} left of ${formatMoney(category.budget)}`;
+      ? currentLanguage === "zh"
+        ? `${formatMoney(available)} 可花 · ${formatMoney(locked)} 已锁定`
+        : `${formatMoney(available)} spendable · ${formatMoney(locked)} locked`
+      : currentLanguage === "zh"
+        ? `${formatMoney(category.left)} 剩余 / ${formatMoney(category.budget)}`
+        : `${formatMoney(category.left)} left of ${formatMoney(category.budget)}`;
     row.querySelector("strong").textContent = `${percent}%`;
     row.querySelector(".hp-track").classList.toggle("warning", percent < 40);
     row.querySelector(".available-bar").style.width = `${availablePercent}%`;
@@ -290,11 +371,7 @@ function renderHomeCategories(categories) {
 }
 
 function getRangeMultiplier(range) {
-  if (range === "3M") return 3;
-  if (range === "6M") return 6;
-  if (range === "1Y") return 12;
-  if (range === "ALL") return 18;
-  return 1;
+  return getRangeMonths(range);
 }
 
 function renderDashboardCategories(categories, range = currentRange) {
@@ -362,13 +439,7 @@ function getSeriesBudget(series) {
 }
 
 function getSeriesSpent(series) {
-  if (series === "total") {
-    const settings = getSettings();
-    const left = getSavedCategories().reduce((sum, category) => sum + (Number(category.left) || 0), 0);
-    return Math.max((Number(settings.monthlyBudget) || 0) - left, 0);
-  }
-  const category = getSavedCategories().find((item) => item.name === series);
-  return Math.max((Number(category?.budget) || 0) - (Number(category?.left) || 0), 0);
+  return getRecordsForRange(currentRange, series).reduce((sum, record) => sum + getRecordAmount(record), 0);
 }
 
 function pointsToPath(points) {
@@ -376,15 +447,21 @@ function pointsToPath(points) {
 }
 
 function getSpendingChart(series, range) {
-  const multiplier = getRangeMultiplier(range);
-  const budget = getSeriesBudget(series) * multiplier;
-  const currentSpent = getSeriesSpent(series);
-  const actualSpent = Math.max(currentSpent * multiplier, 0);
+  const { start, end, months } = getRangeWindow(range);
+  const budget = getSeriesBudget(series) * months;
+  const records = getRecordsForRange(range, series).sort((a, b) => getRecordDate(a) - getRecordDate(b));
+  const actualSpent = records.reduce((sum, record) => sum + getRecordAmount(record), 0);
   const limit = Math.max(budget, actualSpent, 1);
   const toY = (value) => 148 - Math.min(value / limit, 1.15) * 106;
   const x = [10, 74, 138, 202, 266, 330];
-  const shape = series === "total" ? [0, 0.14, 0.28, 0.46, 0.7, 1] : [0, 0.1, 0.22, 0.5, 0.72, 1];
-  const actualPoints = x.map((pointX, index) => [pointX, Math.max(toY(actualSpent * shape[index]), 28)]);
+  const span = Math.max(end - start, 1);
+  const actualPoints = x.map((pointX, index) => {
+    const checkpoint = new Date(start.getTime() + span * (index / (x.length - 1)));
+    const spentAtPoint = records
+      .filter((record) => getRecordDate(record) <= checkpoint)
+      .reduce((sum, record) => sum + getRecordAmount(record), 0);
+    return [pointX, Math.max(toY(spentAtPoint), 28)];
+  });
   const planPoints = x.map((pointX, index) => [pointX, toY(budget * (index / (x.length - 1)))]);
   return {
     actualPath: pointsToPath(actualPoints),
@@ -424,99 +501,11 @@ function renderChartSeries(series, range = currentRange) {
 
 function applyCategories(categories) {
   renderCategoryEditor(categories);
-  renderHomeCategories(categories);
+  renderHomeCategories(getCategoriesWithBalances(categories));
   renderCategoryChoices(categories);
-  renderHeroBudget(getSettings(), categories);
+  renderHeroBudget(getSettings(), getCategoriesWithBalances(categories));
   setRange(currentRange);
 }
-
-const rangeData = {
-  "1M": {
-    spending: "$716",
-    surplus: "$1,284",
-    goal: "$716 short",
-    trend: "$1,284 left",
-    goalLine: "$1,284 saved toward $2,000",
-    goalHint: "4 months left at $200/mo",
-    reserves: {
-      entertainment: ["$180 left", "$120 spent"],
-      games: ["$70 left", "$150 spent"],
-      pets: ["$240 left", "$80 spent"],
-      life: ["$430 left", "$220 spent"],
-    },
-    path: "M10 116 C56 92 70 122 112 84 C148 50 176 78 210 60 C250 36 282 66 330 42",
-    area: "M10 116 C56 92 70 122 112 84 C148 50 176 78 210 60 C250 36 282 66 330 42 L330 160 L10 160 Z",
-    point: [330, 42],
-  },
-  "3M": {
-    spending: "$2,410",
-    surplus: "$3,590",
-    goal: "$1,590 ready",
-    trend: "$3,590 left",
-    goalLine: "$3,590 available after 3 months",
-    goalHint: "Computer is covered",
-    reserves: {
-      entertainment: ["$640 left", "$260 spent"],
-      games: ["$320 left", "$340 spent"],
-      pets: ["$790 left", "$170 spent"],
-      life: ["$1,420 left", "$530 spent"],
-    },
-    path: "M10 90 C44 64 82 72 112 110 C148 154 178 108 212 86 C250 62 284 74 330 66",
-    area: "M10 90 C44 64 82 72 112 110 C148 154 178 108 212 86 C250 62 284 74 330 66 L330 160 L10 160 Z",
-    point: [330, 66],
-  },
-  "6M": {
-    spending: "$4,982",
-    surplus: "$7,018",
-    goal: "$5,018 ready",
-    trend: "$7,018 left",
-    goalLine: "$7,018 available after 6 months",
-    goalHint: "3 computers covered",
-    reserves: {
-      entertainment: ["$1,210 left", "$590 spent"],
-      games: ["$550 left", "$770 spent"],
-      pets: ["$1,610 left", "$310 spent"],
-      life: ["$2,780 left", "$1,120 spent"],
-    },
-    path: "M10 126 C50 120 76 80 116 96 C150 108 170 132 208 94 C250 52 286 46 330 72",
-    area: "M10 126 C50 120 76 80 116 96 C150 108 170 132 208 94 C250 52 286 46 330 72 L330 160 L10 160 Z",
-    point: [330, 72],
-  },
-  "1Y": {
-    spending: "$10,620",
-    surplus: "$13,380",
-    goal: "$11,380 ready",
-    trend: "$13,380 left",
-    goalLine: "$13,380 available after 1 year",
-    goalHint: "Goal is very safe",
-    reserves: {
-      entertainment: ["$2,280 left", "$1,320 spent"],
-      games: ["$940 left", "$1,700 spent"],
-      pets: ["$3,220 left", "$620 spent"],
-      life: ["$5,140 left", "$2,660 spent"],
-    },
-    path: "M10 78 C52 98 80 150 118 128 C150 110 170 58 210 76 C252 98 284 120 330 104",
-    area: "M10 78 C52 98 80 150 118 128 C150 110 170 58 210 76 C252 98 284 120 330 104 L330 160 L10 160 Z",
-    point: [330, 104],
-  },
-  ALL: {
-    spending: "$18,940",
-    surplus: "$21,060",
-    goal: "$19,060 ready",
-    trend: "$21,060 left",
-    goalLine: "$21,060 available since start",
-    goalHint: "Long-term surplus",
-    reserves: {
-      entertainment: ["$3,960 left", "$2,340 spent"],
-      games: ["$1,870 left", "$3,060 spent"],
-      pets: ["$5,830 left", "$1,090 spent"],
-      life: ["$8,740 left", "$4,890 spent"],
-    },
-    path: "M10 140 C48 132 72 112 108 116 C148 122 164 84 204 76 C244 68 280 34 330 28",
-    area: "M10 140 C48 132 72 112 108 116 C148 122 164 84 204 76 C244 68 280 34 330 28 L330 160 L10 160 Z",
-    point: [330, 28],
-  },
-};
 
 function closeSheet() {
   app.classList.remove("sheet-open");
@@ -526,9 +515,9 @@ function closeSheet() {
 function openWishSheet(wish = null) {
   editingWishId = wish?.id || null;
   renderMonthOptions();
-  document.querySelector("[data-wish-name]").value = wish?.name || "New game";
+  document.querySelector("[data-wish-name]").value = wish?.name || "";
   document.querySelector("[data-wish-category]").value = wish?.category || wishCategorySelect.options[0]?.value || "";
-  document.querySelector("[data-wish-price]").value = wish?.price || "$100";
+  document.querySelector("[data-wish-price]").value = wish?.price || "";
   document.querySelector("[data-wish-available]").value = formatMoney(getWishAvailable(document.querySelector("[data-wish-category]").value, editingWishId));
   document.querySelector("[data-wish-months]").value = String(getWishMonths(wish || { months: 1 }));
   const modeKey = editingWishId ? "saveWishlistItem" : "addWishlistItem";
@@ -555,7 +544,7 @@ function saveRecords(records) {
 
 function getSavedWishes() {
   const saved = JSON.parse(localStorage.getItem("budgetHpWishes") || "null");
-  const wishes = saved && saved.length ? saved : defaultWishes;
+  const wishes = Array.isArray(saved) ? saved.filter((wish) => wish.createdAt !== "default" && !String(wish.id || "").startsWith("default-")) : [];
   return wishes.map((wish) => ({
     id: wish.id || createId(),
     ...wish,
@@ -615,7 +604,9 @@ function renderWish(wish) {
   `;
   item.querySelector(".wish-icon").textContent = getWishIcon(wish);
   item.querySelector("h3").textContent = wish.name || "Wishlist item";
-  item.querySelector("p").textContent = `${wish.category || "Category"} · ${formatMoney(progress.available)} available of ${formatMoney(progress.price)} · ${formatMoney(progress.remaining)} to go`;
+  item.querySelector("p").textContent = currentLanguage === "zh"
+    ? `${wish.category || "Category"} · 已有 ${formatMoney(progress.available)} / 目标 ${formatMoney(progress.price)} · 还差 ${formatMoney(progress.remaining)}`
+    : `${wish.category || "Category"} · ${formatMoney(progress.available)} available of ${formatMoney(progress.price)} · ${formatMoney(progress.remaining)} to go`;
   item.querySelector("strong").textContent = progress.months;
   item.querySelector(".wish-progress span").style.width = `${progress.percent}%`;
   return item;
@@ -629,9 +620,12 @@ function renderHomeWish(wish) {
 
 function updateHomeWish(wish) {
   if (!wish) return;
+  if (!document.querySelector("[data-home-wish-name]")) return;
   const progress = getWishProgress(wish);
   document.querySelector("[data-home-wish-name]").textContent = wish.name || "Wishlist item";
-  document.querySelector("[data-home-wish-copy]").textContent = `${wish.category || "Category"} · ${formatMoney(progress.available)} available of ${formatMoney(progress.price)} · ${formatMoney(progress.remaining)} to go`;
+  document.querySelector("[data-home-wish-copy]").textContent = currentLanguage === "zh"
+    ? `${wish.category || "Category"} · 已有 ${formatMoney(progress.available)} / 目标 ${formatMoney(progress.price)} · 还差 ${formatMoney(progress.remaining)}`
+    : `${wish.category || "Category"} · ${formatMoney(progress.available)} available of ${formatMoney(progress.price)} · ${formatMoney(progress.remaining)} to go`;
   document.querySelector("[data-home-wish-months]").textContent = progress.months;
   document.querySelector("[data-home-wish-bar]").style.width = `${progress.percent}%`;
 }
@@ -640,7 +634,16 @@ function renderSavedWishes() {
   const wishes = getSavedWishes();
   saveWishes(wishes);
   wishList.innerHTML = "";
-  homeWishRail.querySelectorAll("[data-wish-item]").forEach((item) => item.remove());
+  homeWishRail.innerHTML = "";
+  if (!wishes.length) {
+    const empty = document.createElement("p");
+    empty.className = "empty-state";
+    empty.textContent = t("emptyWishlist");
+    wishList.append(empty);
+    const homeEmpty = empty.cloneNode(true);
+    homeWishRail.append(homeEmpty);
+    return;
+  }
   wishes.forEach((wish) => {
     wishList.prepend(renderWish(wish));
     homeWishRail.prepend(renderHomeWish(wish));
@@ -657,27 +660,36 @@ function renderRecord(record) {
     </div>
     <em></em>
   `;
-  item.querySelector("strong").textContent = record.note || "Spending";
-  item.querySelector("span").textContent = `${record.category} · ${record.date}`;
+  const date = getRecordDate(record);
+  const label = currentLanguage === "zh"
+    ? date.toLocaleDateString("zh-CN", { month: "long", day: "numeric" })
+    : date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  item.querySelector("strong").textContent = record.note || (currentLanguage === "zh" ? "消费" : "Spending");
+  item.querySelector("span").textContent = `${record.category} · ${label}`;
   item.querySelector("em").textContent = `−${record.amount}`;
   return item;
 }
 
 function renderSavedRecords() {
   const records = getSavedRecords();
+  recordList.innerHTML = "";
+  if (!records.length) {
+    const empty = document.createElement("p");
+    empty.className = "empty-state";
+    empty.textContent = t("emptyRecords");
+    recordList.append(empty);
+    return;
+  }
   records.forEach((record) => recordList.prepend(renderRecord(record)));
 }
 
 function setRange(range) {
   currentRange = range;
-  const multiplier = getRangeMultiplier(range);
+  const months = getRangeMonths(range);
   const settings = getSettings();
-  const categories = getSavedCategories();
   const monthlyBudget = Number(settings.monthlyBudget) || 0;
-  const monthlyLeft = categories.reduce((sum, category) => sum + (Number(category.left) || 0), 0);
-  const monthlySpent = Math.max(monthlyBudget - monthlyLeft, 0);
-  const planned = monthlyBudget * multiplier;
-  const spent = monthlySpent * multiplier;
+  const planned = monthlyBudget * months;
+  const spent = getRecordsForRange(range).reduce((sum, record) => sum + getRecordAmount(record), 0);
   const left = Math.max(planned - spent, 0);
   const deviation = spent - planned;
   document.querySelector('[data-stat="spending"]').textContent = formatMoney(spent);
@@ -848,18 +860,24 @@ wishList.addEventListener("click", (event) => {
 saveRecordButton.addEventListener("click", () => {
   const amount = document.querySelector(".amount-field input").value.trim() || "$0";
   const note = document.querySelector(".note-field input").value.trim();
-  const category = document.querySelector(".chip-group .active").textContent.trim();
+  const activeCategory = document.querySelector(".chip-group .active");
+  if (!activeCategory) return;
+  const category = activeCategory.textContent.trim();
   const record = {
-    amount,
+    amount: formatMoney(parseMoney(amount)),
     note,
     category,
-    date: "Today",
+    date: new Date().toISOString(),
     createdAt: new Date().toISOString(),
   };
   const records = getSavedRecords();
   records.push(record);
   saveRecords(records);
-  recordList.prepend(renderRecord(record));
+  renderSavedRecords();
+  renderHeroBudget(getSettings(), getCategoriesWithBalances());
+  renderHomeCategories(getCategoriesWithBalances());
+  renderSavedWishes();
+  setRange(currentRange);
   closeSheet();
   setView("records");
 });
@@ -868,6 +886,7 @@ languageSelect.addEventListener("change", () => {
   applyLanguage(languageSelect.value);
 });
 
+migrateLegacyMockData();
 resetMonthlyBudgetsIfDue();
 applyLanguage(currentLanguage);
 renderSettings(getSettings());

@@ -19,7 +19,7 @@
         overflow-x: hidden;
       }
     </style>
-    <link rel="stylesheet" href="./styles.css?v=20260601-7" />
+    <link rel="stylesheet" href="./styles.css?v=20260601-8" />
   </head>
   <body>
     <main class="app-shell" aria-label="Budget dashboard prototype" data-active-view="home">
@@ -57,41 +57,6 @@
             <p data-i18n="nextUnlock">Next unlock</p>
           </div>
           <div class="horizontal-rail home-wish-rail">
-            <article class="wish-card compact" data-wish-item>
-              <div class="wish-main">
-                <span class="wish-icon" aria-hidden="true">🎮</span>
-                <div>
-                  <h3 data-home-wish-name>New game</h3>
-                  <p data-home-wish-copy>Games · $70 available of $100 · $30 to go</p>
-                </div>
-              </div>
-              <strong data-home-wish-months>1 month</strong>
-              <div class="hp-track small wish-progress" aria-label="70 percent funded by Games category">
-                <span data-home-wish-bar style="width: 70%"></span>
-              </div>
-            </article>
-            <article class="wish-card compact" data-wish-item>
-              <div class="wish-main">
-                <span class="wish-icon" aria-hidden="true">💻</span>
-                <div>
-                  <h3>Computer</h3>
-                  <p>Life · $1,284 available of $2,000 · $716 to go</p>
-                </div>
-              </div>
-              <strong>4 months</strong>
-              <div class="hp-track small wish-progress"><span style="width: 64%"></span></div>
-            </article>
-            <article class="wish-card compact" data-wish-item>
-              <div class="wish-main">
-                <span class="wish-icon" aria-hidden="true">🎧</span>
-                <div>
-                  <h3>Headphones</h3>
-                  <p>Entertainment · $180 available of $260 · $80 to go</p>
-                </div>
-              </div>
-              <strong>1 month</strong>
-              <div class="hp-track small wish-progress"><span style="width: 69%"></span></div>
-            </article>
           </div>
         </section>
 
@@ -100,52 +65,7 @@
             <h2 data-i18n="categories">Categories</h2>
             <button class="mini-button" type="button" data-tab-target="categories" data-i18n="edit">Edit</button>
           </div>
-          <div class="category-list">
-            <article class="category-row">
-              <div class="category-meta">
-                <span class="dot entertainment"></span>
-                <div>
-                  <h3>Entertainment</h3>
-                  <p>$180 left of $300</p>
-                </div>
-              </div>
-              <strong>60%</strong>
-              <div class="hp-track small"><span style="width: 60%"></span></div>
-            </article>
-            <article class="category-row">
-              <div class="category-meta">
-                <span class="dot games"></span>
-                <div>
-                  <h3>Games</h3>
-                  <p>$70 left of $220</p>
-                </div>
-              </div>
-              <strong>32%</strong>
-              <div class="hp-track small warning"><span style="width: 32%"></span></div>
-            </article>
-            <article class="category-row">
-              <div class="category-meta">
-                <span class="dot pets"></span>
-                <div>
-                  <h3>Pets</h3>
-                  <p>$240 left of $320</p>
-                </div>
-              </div>
-              <strong>75%</strong>
-              <div class="hp-track small"><span style="width: 75%"></span></div>
-            </article>
-            <article class="category-row">
-              <div class="category-meta">
-                <span class="dot life"></span>
-                <div>
-                  <h3>Life</h3>
-                  <p>$430 left of $650</p>
-                </div>
-              </div>
-              <strong>66%</strong>
-              <div class="hp-track small"><span style="width: 66%"></span></div>
-            </article>
-          </div>
+          <div class="category-list"></div>
         </section>
 
         <section class="dashboard-panel" aria-label="Spending dashboard">
@@ -283,29 +203,7 @@
             <h2 data-i18n="savedRecords">Saved records</h2>
             <p data-i18n="localDevice">Local device</p>
           </div>
-          <div class="record-list">
-            <article>
-              <div>
-                <strong>Lunch and coffee</strong>
-                <span>Life · Today</span>
-              </div>
-              <em>−$38.50</em>
-            </article>
-            <article>
-              <div>
-                <strong>Steam sale</strong>
-                <span>Games · May 14</span>
-              </div>
-              <em>−$24.99</em>
-            </article>
-            <article>
-              <div>
-                <strong>Pet food</strong>
-                <span>Pets · May 09</span>
-              </div>
-              <em>−$62.10</em>
-            </article>
-          </div>
+          <div class="record-list"></div>
         </section>
       </section>
 
@@ -326,30 +224,7 @@
             <p data-i18n="fundedByLeftover">Funded by leftover budget</p>
           </div>
 
-          <div class="wish-list">
-            <article class="wish-card" data-wish-item>
-              <div class="wish-main">
-                <span class="wish-icon" aria-hidden="true">🎮</span>
-                <div>
-                  <h3>New game</h3>
-                  <p>Games · $70 available of $100 · $30 to go</p>
-                </div>
-              </div>
-              <strong>1 month</strong>
-              <div class="hp-track small wish-progress"><span style="width: 70%"></span></div>
-            </article>
-            <article class="wish-card" data-wish-item>
-              <div class="wish-main">
-                <span class="wish-icon" aria-hidden="true">💻</span>
-                <div>
-                  <h3>Computer</h3>
-                  <p>Life · $1,284 available of $2,000 · $716 to go</p>
-                </div>
-              </div>
-              <strong>4 months</strong>
-              <div class="hp-track small wish-progress"><span style="width: 64%"></span></div>
-            </article>
-          </div>
+          <div class="wish-list"></div>
         </section>
       </section>
 
@@ -445,24 +320,19 @@
         <div class="wish-form">
           <label>
             <span data-i18n="name">Name</span>
-            <input type="text" value="New game" data-wish-name />
+            <input type="text" value="" data-wish-name />
           </label>
           <label>
             <span data-i18n="fundingCategory">Funding category</span>
-            <select data-wish-category>
-              <option>Games</option>
-              <option>Entertainment</option>
-              <option>Pets</option>
-              <option>Life</option>
-            </select>
+            <select data-wish-category></select>
           </label>
           <label>
             <span data-i18n="price">Price</span>
-            <input type="text" value="$100" inputmode="decimal" data-wish-price />
+            <input type="text" value="$0" inputmode="decimal" data-wish-price />
           </label>
           <label>
             <span data-i18n="currentCategoryLeft">Current category left</span>
-            <input type="text" value="$70" inputmode="decimal" data-wish-available readonly />
+            <input type="text" value="$0" inputmode="decimal" data-wish-available readonly />
           </label>
           <label>
             <span data-i18n="targetMonths">Target months</span>
@@ -482,22 +352,17 @@
         </div>
         <label class="amount-field">
           <span data-i18n="amount">Amount</span>
-          <input type="text" value="$38.50" inputmode="decimal" />
+          <input type="text" value="" inputmode="decimal" />
         </label>
-        <div class="chip-group" aria-label="Pick category">
-          <button class="active" type="button">Life</button>
-          <button type="button">Games</button>
-          <button type="button">Pets</button>
-          <button type="button">Entertainment</button>
-        </div>
+        <div class="chip-group" aria-label="Pick category"></div>
         <label class="note-field">
           <span data-i18n="note">Note</span>
-          <input type="text" value="Lunch and coffee" />
+          <input type="text" value="" />
         </label>
         <button class="confirm-button" type="button" data-save-record data-i18n="subtractFromBudget">Subtract from budget</button>
       </section>
     </main>
 
-    <script src="./app.js?v=20260601-7"></script>
+    <script src="./app.js?v=20260601-8"></script>
   </body>
 </html>
