@@ -13,8 +13,6 @@
   --blue: #6fb7ff;
   --violet: #a88cff;
   --shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
-  --app-width: 430px;
-  --nav-width: 402px;
 }
 
 * {
@@ -54,7 +52,7 @@ button {
 .app-shell {
   position: relative;
   width: 100%;
-  max-width: var(--app-width);
+  max-width: 430px;
   min-height: 100svh;
   margin: 0 auto;
   padding: max(18px, env(safe-area-inset-top)) 18px calc(152px + env(safe-area-inset-bottom));
@@ -730,7 +728,7 @@ h3 {
   display: grid;
   grid-template-columns: 1fr 1fr 58px 1fr 1fr;
   gap: 6px;
-  width: min(calc(100% - 28px), var(--nav-width));
+  width: min(calc(100% - 28px), 402px);
   margin: 0 auto;
   padding: 8px;
   border: 1px solid var(--line);
@@ -796,7 +794,7 @@ h3 {
   z-index: 10;
   display: grid;
   gap: 14px;
-  width: min(100%, var(--app-width));
+  width: min(100%, 430px);
   margin: 0 auto;
   padding: 10px 18px calc(22px + env(safe-area-inset-bottom));
   border: 1px solid var(--line);
@@ -1056,17 +1054,5 @@ select {
 
   .settings-list div {
     grid-template-columns: 42px 1fr 82px 36px;
-  }
-}
-
-@media (min-width: 720px) and (hover: hover) and (pointer: fine) {
-  :root {
-    --app-width: 680px;
-    --nav-width: 642px;
-  }
-
-  .app-shell {
-    padding-right: 24px;
-    padding-left: 24px;
   }
 }
