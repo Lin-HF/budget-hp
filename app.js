@@ -409,6 +409,7 @@ function renderHomeCategories(categories) {
     const lockedPercent = category.budget > 0 ? Math.min((locked / category.budget) * 100, 100 - availablePercent) : 0;
     const row = document.createElement("article");
     row.className = "category-row";
+    row.dataset.categoryName = category.name;
     row.innerHTML = `
       <div class="category-meta">
         <span class="category-icon"></span>
@@ -419,6 +420,7 @@ function renderHomeCategories(categories) {
       </div>
       <strong></strong>
       <div class="hp-track small category-lock-track">
+        <span class="damage-bar"></span>
         <span class="available-bar"></span>
         <span class="locked-bar"></span>
       </div>
@@ -776,6 +778,23 @@ function refreshMoneyViews() {
   setRange(currentRange);
 }
 
+function getCategoryLeftPercent(category) {
+  const budget = Math.max(Number(category?.budget) || 1, 1);
+  return Math.min(Math.max(((Number(category?.left) || 0) / budget) * 100, 0), 100);
+}
+
+function animateCategoryDamage(categoryName, previousPercent, nextPercent) {
+  const row = [...categoryList.querySelectorAll("[data-category-name]")]
+    .find((item) => item.dataset.categoryName === categoryName);
+  if (!row) return;
+  row.style.setProperty("--damage-start", `${Math.max(previousPercent, nextPercent)}%`);
+  row.style.setProperty("--damage-end", `${Math.min(previousPercent, nextPercent)}%`);
+  row.classList.remove("category-hit");
+  void row.offsetWidth;
+  row.classList.add("category-hit");
+  window.setTimeout(() => row.classList.remove("category-hit"), 900);
+}
+
 function setRange(range) {
   currentRange = range;
   const months = getRangeMonths(range);
@@ -965,6 +984,8 @@ saveRecordButton.addEventListener("click", () => {
   const activeCategory = document.querySelector(".chip-group .active");
   if (!activeCategory) return;
   const category = activeCategory.textContent.trim();
+  const previousCategory = getCategoriesWithBalances().find((item) => item.name === category);
+  const previousPercent = getCategoryLeftPercent(previousCategory);
   const record = {
     id: createId(),
     amount: formatMoney(parseMoney(amount)),
@@ -978,7 +999,11 @@ saveRecordButton.addEventListener("click", () => {
   saveRecords(records);
   refreshMoneyViews();
   closeSheet();
-  setView("records");
+  setView("home");
+  const nextCategory = getCategoriesWithBalances().find((item) => item.name === category);
+  window.requestAnimationFrame(() => {
+    animateCategoryDamage(category, previousPercent, getCategoryLeftPercent(nextCategory));
+  });
 });
 
 languageSelect.addEventListener("change", () => {
