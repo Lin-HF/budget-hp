@@ -438,8 +438,8 @@ function renderHomeCategories(categories) {
     row.querySelector("h3").textContent = category.name;
     row.querySelector("p").textContent = left < 0
       ? currentLanguage === "zh"
-        ? `超出 ${formatMoney(Math.abs(left))} / 预算 ${formatMoney(category.budget)}`
-        : `${formatMoney(Math.abs(left))} over ${formatMoney(category.budget)} budget`
+        ? `KO · 超出 ${formatMoney(Math.abs(left))} / 预算 ${formatMoney(category.budget)}`
+        : `KO · ${formatMoney(Math.abs(left))} over ${formatMoney(category.budget)} budget`
       : locked > 0
       ? currentLanguage === "zh"
         ? `${formatMoney(available)} 可花 · ${formatMoney(locked)} 已锁定`
