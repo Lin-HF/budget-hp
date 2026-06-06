@@ -83,7 +83,7 @@ function formatMoney(value, options = {}) {
   const rounded = Math.round(amount * 100) / 100;
   const hasCents = Math.abs(Math.round(rounded * 100) % 100) > 0;
   const showCents = options.cents === "always" || (options.cents !== "never" && hasCents);
-  return `$${rounded.toLocaleString("en-US", {
+  return `${rounded < 0 ? "-" : ""}$${Math.abs(rounded).toLocaleString("en-US", {
     minimumFractionDigits: showCents ? 2 : 0,
     maximumFractionDigits: 2,
   })}`;
@@ -311,7 +311,7 @@ function getCurrentMonthSpent(categoryName = null) {
 function getCategoriesWithBalances(categories = getSavedCategories()) {
   return categories.map((category) => ({
     ...category,
-    left: Math.max((Number(category.budget) || 0) - getCurrentMonthSpent(category.name), 0),
+    left: (Number(category.budget) || 0) - getCurrentMonthSpent(category.name),
   }));
 }
 
@@ -358,8 +358,8 @@ function resetMonthlyBudgetsIfDue(date = new Date()) {
 function renderHeroBudget(settings = getSettings(), categories = getSavedCategories()) {
   const budget = Math.max(Number(settings.monthlyBudget) || 0, 0);
   const spent = getCurrentMonthSpent();
-  const left = Math.max(budget - spent, 0);
-  const percent = budget > 0 ? Math.min(Math.round((left / budget) * 100), 100) : 0;
+  const left = budget - spent;
+  const percent = budget > 0 ? Math.min(Math.max(Math.round((left / budget) * 100), 0), 100) : 0;
   heroLeft.textContent = formatMoney(left);
   heroSubline.textContent = currentLanguage === "zh"
     ? `本月已花 ${formatMoney(spent)} / 月预算 ${formatMoney(budget)}`
@@ -370,7 +370,7 @@ function renderHeroBudget(settings = getSettings(), categories = getSavedCategor
 
 function getCategoryPercent(category) {
   const budget = Math.max(Number(category.budget) || 1, 1);
-  return Math.min(Math.round((Number(category.left) / budget) * 100), 100);
+  return Math.min(Math.max(Math.round((Number(category.left) / budget) * 100), 0), 100);
 }
 
 function renderCategoryEditor(categories) {
@@ -410,8 +410,9 @@ function renderHomeCategories(categories) {
   categoryList.innerHTML = "";
   categories.forEach((category) => {
     const percent = getCategoryPercent(category);
-    const locked = Math.min(getCategoryLockedAmount(category.name), Number(category.left) || 0);
-    const available = Math.max((Number(category.left) || 0) - locked, 0);
+    const left = Number(category.left) || 0;
+    const locked = Math.min(getCategoryLockedAmount(category.name), Math.max(left, 0));
+    const available = Math.max(left - locked, 0);
     const availablePercent = category.budget > 0 ? Math.min((available / category.budget) * 100, 100) : 0;
     const lockedPercent = category.budget > 0 ? Math.min((locked / category.budget) * 100, 100 - availablePercent) : 0;
     const row = document.createElement("article");
@@ -434,7 +435,11 @@ function renderHomeCategories(categories) {
     `;
     row.querySelector(".category-icon").textContent = category.icon || "♡";
     row.querySelector("h3").textContent = category.name;
-    row.querySelector("p").textContent = locked > 0
+    row.querySelector("p").textContent = left < 0
+      ? currentLanguage === "zh"
+        ? `超出 ${formatMoney(Math.abs(left))} / 预算 ${formatMoney(category.budget)}`
+        : `${formatMoney(Math.abs(left))} over ${formatMoney(category.budget)} budget`
+      : locked > 0
       ? currentLanguage === "zh"
         ? `${formatMoney(available)} 可花 · ${formatMoney(locked)} 已锁定`
         : `${formatMoney(available)} spendable · ${formatMoney(locked)} locked`
@@ -589,6 +594,11 @@ function applyCategories(categories) {
 function closeSheet() {
   app.classList.remove("sheet-open");
   document.querySelector(".spend-sheet").setAttribute("aria-hidden", "true");
+}
+
+function resetSpendForm() {
+  document.querySelector(".amount-field input").value = "";
+  document.querySelector(".note-field input").value = "";
 }
 
 function openWishSheet(wish = null) {
@@ -809,7 +819,7 @@ function setRange(range) {
   const monthlyBudget = Number(settings.monthlyBudget) || 0;
   const planned = monthlyBudget * months;
   const spent = getRecordsForRange(range).reduce((sum, record) => sum + getRecordAmount(record), 0);
-  const left = Math.max(planned - spent, 0);
+  const left = planned - spent;
   const deviation = spent - planned;
   document.querySelector('[data-stat="spending"]').textContent = formatMoney(spent);
   document.querySelector('[data-stat="surplus"]').textContent = formatMoney(left);
@@ -862,6 +872,7 @@ tabButtons.forEach((button) => {
 
 openSheetButtons.forEach((button) => {
   button.addEventListener("click", () => {
+    resetSpendForm();
     app.classList.add("sheet-open");
     document.querySelector(".spend-sheet").setAttribute("aria-hidden", "false");
   });
@@ -1011,6 +1022,7 @@ saveRecordButton.addEventListener("click", () => {
   records.push(record);
   saveRecords(records);
   refreshMoneyViews();
+  resetSpendForm();
   closeSheet();
   setView("home");
   const nextCategory = getCategoriesWithBalances().find((item) => item.name === category);
