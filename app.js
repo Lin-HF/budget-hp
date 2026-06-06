@@ -862,6 +862,7 @@ function getRecordDeleteLabel(record) {
 function openDeleteConfirm(record) {
   pendingDeleteRecordId = record.id;
   deleteConfirmLabel.textContent = getRecordDeleteLabel(record);
+  confirmModal.classList.remove("healing");
   confirmBackdrop.classList.add("show");
   confirmModal.classList.add("show");
   confirmModal.setAttribute("aria-hidden", "false");
@@ -870,8 +871,18 @@ function openDeleteConfirm(record) {
 function closeDeleteConfirm() {
   pendingDeleteRecordId = null;
   confirmBackdrop.classList.remove("show");
-  confirmModal.classList.remove("show");
+  confirmModal.classList.remove("show", "healing");
   confirmModal.setAttribute("aria-hidden", "true");
+}
+
+function playDeleteConfirmHealExit(onComplete) {
+  confirmModal.classList.add("healing");
+  confirmBackdrop.classList.add("healing");
+  window.setTimeout(() => {
+    confirmBackdrop.classList.remove("healing");
+    closeDeleteConfirm();
+    onComplete();
+  }, 720);
 }
 
 function getCategoryLeftPercent(category) {
@@ -1082,9 +1093,14 @@ closeConfirmButtons.forEach((button) => button.addEventListener("click", closeDe
 
 confirmDeleteRecordButton.addEventListener("click", () => {
   if (!pendingDeleteRecordId) return;
+  const recordId = pendingDeleteRecordId;
+  confirmDeleteRecordButton.disabled = true;
   saveRecords(getSavedRecords().filter((item) => item.id !== pendingDeleteRecordId));
-  closeDeleteConfirm();
-  refreshMoneyViews();
+  playDeleteConfirmHealExit(() => {
+    if (pendingDeleteRecordId === recordId) pendingDeleteRecordId = null;
+    confirmDeleteRecordButton.disabled = false;
+    refreshMoneyViews();
+  });
 });
 
 saveRecordButton.addEventListener("click", () => {
