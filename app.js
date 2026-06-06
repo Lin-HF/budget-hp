@@ -417,6 +417,7 @@ function renderHomeCategories(categories) {
     const lockedPercent = category.budget > 0 ? Math.min((locked / category.budget) * 100, 100 - availablePercent) : 0;
     const row = document.createElement("article");
     row.className = "category-row";
+    row.classList.toggle("category-dead", left < 0);
     row.dataset.categoryName = category.name;
     row.innerHTML = `
       <div class="category-meta">
@@ -446,7 +447,7 @@ function renderHomeCategories(categories) {
       : currentLanguage === "zh"
         ? `${formatMoney(category.left)} 剩余 / ${formatMoney(category.budget)}`
         : `${formatMoney(category.left)} left of ${formatMoney(category.budget)}`;
-    row.querySelector("strong").textContent = `${percent}%`;
+    row.querySelector("strong").textContent = left < 0 ? "KO" : `${percent}%`;
     row.querySelector(".hp-track").classList.toggle("warning", percent < 40);
     row.querySelector(".available-bar").style.width = `${availablePercent}%`;
     row.querySelector(".locked-bar").style.width = `${lockedPercent}%`;

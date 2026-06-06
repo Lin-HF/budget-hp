@@ -345,6 +345,56 @@ h3 {
   animation: hpDamageDrop 760ms cubic-bezier(.2,.8,.2,1) forwards;
 }
 
+.category-row.category-dead {
+  position: relative;
+  border-color: rgba(255, 81, 81, 0.52);
+  background:
+    linear-gradient(135deg, rgba(91, 11, 17, 0.58), rgba(20, 16, 15, 0.92)),
+    rgba(255, 255, 255, 0.035);
+  box-shadow: inset 0 0 22px rgba(255, 32, 32, 0.12), 0 0 24px rgba(255, 50, 50, 0.16);
+}
+
+.category-row.category-dead::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(135deg, transparent 0 13px, rgba(255,255,255,0.035) 13px 15px),
+    radial-gradient(circle at 92% 18%, rgba(255, 84, 84, 0.26), transparent 28%);
+  opacity: 0.85;
+}
+
+.category-row.category-dead .category-icon {
+  border-color: rgba(255, 103, 95, 0.42);
+  background: rgba(255, 103, 95, 0.1);
+  filter: grayscale(0.55);
+}
+
+.category-row.category-dead h3,
+.category-row.category-dead strong {
+  color: #ffd8d4;
+  text-shadow: 0 0 12px rgba(255, 72, 72, 0.34);
+}
+
+.category-row.category-dead p {
+  color: #ff8f88;
+  font-weight: 850;
+}
+
+.category-row.category-dead .hp-track {
+  border-color: rgba(255, 103, 95, 0.34);
+  background:
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.08) 0 5px, rgba(255,255,255,0.02) 5px 10px),
+    rgba(255, 103, 95, 0.12);
+  box-shadow: inset 0 0 13px rgba(255, 56, 56, 0.34);
+}
+
+.category-row.category-dead .available-bar,
+.category-row.category-dead .locked-bar {
+  width: 0 !important;
+}
+
 .category-meta {
   display: flex;
   align-items: center;
