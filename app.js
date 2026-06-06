@@ -271,6 +271,15 @@ function getRangeMonths(range) {
 }
 
 function getRangeWindow(range, date = new Date()) {
+  if (range === "1M") {
+    return {
+      start: getStartOfMonth(date),
+      end: getEndOfMonth(date),
+      actualEnd: date,
+      months: 1,
+    };
+  }
+
   const end = date;
   if (range === "ALL") {
     const records = getSavedRecords();
@@ -279,21 +288,21 @@ function getRangeWindow(range, date = new Date()) {
       return recordDate < min ? recordDate : min;
     }, date);
     const start = records.length ? earliest : date;
-    return { start, end, months: getRangeMonths(range) };
+    return { start, end, actualEnd: end, months: getRangeMonths(range) };
   }
 
   const months = getRangeMonths(range);
   const start = new Date(date);
   start.setMonth(start.getMonth() - months);
-  return { start, end, months };
+  return { start, end, actualEnd: end, months };
 }
 
 function getRecordsForRange(range, series = "total") {
-  const { start, end } = getRangeWindow(range);
+  const { start, actualEnd } = getRangeWindow(range);
   return getSavedRecords().filter((record) => {
     const date = getRecordDate(record);
     const matchesSeries = series === "total" || record.category === series;
-    return matchesSeries && date >= start && date <= end;
+    return matchesSeries && date >= start && date <= actualEnd;
   });
 }
 
@@ -503,12 +512,14 @@ function getCategoryChartPath(categoryName, range) {
 }
 
 function getAreaPath(linePath) {
-  return `${linePath} L330 160 L10 160 Z`;
+  const points = [...linePath.matchAll(/[ML]([\d.]+) ([\d.]+)/g)];
+  const lastX = points.at(-1)?.[1] || "330";
+  return `${linePath} L${lastX} 160 L10 160 Z`;
 }
 
 function getRangeLabel(range) {
   const labels = {
-    "1M": currentLanguage === "zh" ? "过去1个月" : "Past 1 month",
+    "1M": currentLanguage === "zh" ? "本月" : "This month",
     "3M": currentLanguage === "zh" ? "过去3个月" : "Past 3 months",
     "6M": currentLanguage === "zh" ? "过去6个月" : "Past 6 months",
     "1Y": currentLanguage === "zh" ? "过去1年" : "Past 1 year",
@@ -532,7 +543,7 @@ function pointsToPath(points) {
 }
 
 function getSpendingChart(series, range) {
-  const { start, end, months } = getRangeWindow(range);
+  const { start, end, actualEnd, months } = getRangeWindow(range);
   const budget = getSeriesBudget(series) * months;
   const records = getRecordsForRange(range, series).sort((a, b) => getRecordDate(a) - getRecordDate(b));
   const actualSpent = records.reduce((sum, record) => sum + getRecordAmount(record), 0);
@@ -540,13 +551,22 @@ function getSpendingChart(series, range) {
   const toY = (value) => 148 - Math.min(value / limit, 1.15) * 106;
   const x = [10, 74, 138, 202, 266, 330];
   const span = Math.max(end - start, 1);
-  const actualPoints = x.map((pointX, index) => {
-    const checkpoint = new Date(start.getTime() + span * (index / (x.length - 1)));
+  const toX = (date) => 10 + Math.min(Math.max((date - start) / span, 0), 1) * 320;
+  const actualPoints = x
+    .map((pointX, index) => ({
+      pointX,
+      checkpoint: new Date(start.getTime() + span * (index / (x.length - 1))),
+    }))
+    .filter(({ checkpoint }) => checkpoint <= actualEnd)
+    .map(({ pointX, checkpoint }) => {
     const spentAtPoint = records
       .filter((record) => getRecordDate(record) <= checkpoint)
       .reduce((sum, record) => sum + getRecordAmount(record), 0);
     return [pointX, Math.max(toY(spentAtPoint), 28)];
   });
+  if (actualEnd < end && actualPoints.at(-1)?.[0] !== toX(actualEnd)) {
+    actualPoints.push([toX(actualEnd), Math.max(toY(actualSpent), 28)]);
+  }
   const planPoints = x.map((pointX, index) => [pointX, toY(budget * (index / (x.length - 1)))]);
   return {
     actualPath: pointsToPath(actualPoints),
