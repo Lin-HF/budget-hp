@@ -48,6 +48,7 @@ const categoryPopupLeft = document.querySelector("[data-category-popup-left]");
 const categoryPopupRecords = document.querySelector("[data-category-popup-records]");
 let editingWishId = null;
 let pendingDeleteRecordId = null;
+let lockedScrollY = 0;
 
 const defaultCategories = [
   { icon: "🎬", name: "娱乐", budget: 300, left: 300, tone: "entertainment" },
@@ -922,15 +923,22 @@ function openCategoryPopup(categoryName) {
   } else {
     records.forEach((record) => categoryPopupRecords.append(renderCategoryPopupRecord(record)));
   }
+  lockedScrollY = window.scrollY || document.documentElement.scrollTop || 0;
+  document.body.style.top = `-${lockedScrollY}px`;
+  document.body.classList.add("modal-scroll-lock");
   categoryPopupBackdrop.classList.add("show");
   categoryPopup.classList.add("show");
   categoryPopup.setAttribute("aria-hidden", "false");
 }
 
 function closeCategoryPopup() {
+  if (!categoryPopup.classList.contains("show")) return;
   categoryPopupBackdrop.classList.remove("show");
   categoryPopup.classList.remove("show");
   categoryPopup.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-scroll-lock");
+  document.body.style.top = "";
+  window.scrollTo(0, lockedScrollY);
 }
 
 function getRecordDeleteLabel(record) {

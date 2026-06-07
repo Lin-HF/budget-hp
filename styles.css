@@ -39,6 +39,19 @@ body {
   overflow-x: hidden;
 }
 
+body.modal-scroll-lock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+body.modal-scroll-lock .category-popup,
+body.modal-scroll-lock .category-popup-records {
+  touch-action: pan-y;
+}
+
 button,
 input,
 select {
@@ -1125,6 +1138,8 @@ select {
     radial-gradient(circle at 50% 80%, rgba(41, 209, 130, 0.13), transparent 40%),
     rgba(0, 0, 0, 0.52);
   backdrop-filter: blur(8px);
+  overscroll-behavior: contain;
+  touch-action: none;
 }
 
 .confirm-backdrop.show {
@@ -1153,7 +1168,9 @@ select {
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.62);
   opacity: 0;
   overflow: hidden;
+  overscroll-behavior: contain;
   pointer-events: none;
+  touch-action: pan-y;
   transform: translate(-50%, 18px) scale(0.98);
   transition: opacity 180ms ease, transform 180ms ease;
 }
@@ -1228,7 +1245,10 @@ select {
   gap: 9px;
   max-height: min(38vh, 280px);
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding-right: 2px;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
 }
 
 .category-popup-records article {
