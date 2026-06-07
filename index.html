@@ -19,7 +19,7 @@
         overflow-x: hidden;
       }
     </style>
-    <link rel="stylesheet" href="./styles.css?v=20260606-7" />
+    <link rel="stylesheet" href="./styles.css?v=20260607-1" />
   </head>
   <body>
     <main class="app-shell" aria-label="Budget dashboard prototype" data-active-view="home">
@@ -364,6 +364,29 @@
         <button class="confirm-button" type="button" data-save-record data-i18n="subtractFromBudget">Subtract from budget</button>
       </section>
 
+      <div class="category-popup-backdrop" data-close-category-popup></div>
+      <section class="category-popup" aria-hidden="true" aria-labelledby="category-popup-title">
+        <div class="category-popup-head">
+          <div class="category-popup-icon" data-category-popup-icon aria-hidden="true"></div>
+          <div>
+            <p class="eyebrow" data-i18n="monthBattleLog">Month battle log</p>
+            <h2 id="category-popup-title" data-category-popup-title></h2>
+          </div>
+          <button class="icon-button tiny" type="button" aria-label="Close category records" data-close-category-popup>×</button>
+        </div>
+        <div class="category-popup-stats">
+          <article>
+            <span data-i18n="spentThisMonth">Spent this month</span>
+            <strong data-category-popup-spent></strong>
+          </article>
+          <article>
+            <span data-i18n="budgetLeft">Budget left</span>
+            <strong data-category-popup-left></strong>
+          </article>
+        </div>
+        <div class="category-popup-records" data-category-popup-records></div>
+      </section>
+
       <div class="confirm-backdrop" data-close-confirm></div>
       <section class="confirm-modal" aria-hidden="true" aria-labelledby="delete-confirm-title">
         <div class="confirm-icon" aria-hidden="true">!</div>
@@ -379,6 +402,6 @@
       </section>
     </main>
 
-    <script src="./app.js?v=20260606-7"></script>
+    <script src="./app.js?v=20260607-1"></script>
   </body>
 </html>

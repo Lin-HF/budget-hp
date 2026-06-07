@@ -38,6 +38,14 @@ const confirmBackdrop = document.querySelector(".confirm-backdrop");
 const closeConfirmButtons = document.querySelectorAll("[data-close-confirm]");
 const confirmDeleteRecordButton = document.querySelector("[data-confirm-delete-record]");
 const deleteConfirmLabel = document.querySelector("[data-delete-confirm-label]");
+const categoryPopup = document.querySelector(".category-popup");
+const categoryPopupBackdrop = document.querySelector(".category-popup-backdrop");
+const closeCategoryPopupButtons = document.querySelectorAll("[data-close-category-popup]");
+const categoryPopupIcon = document.querySelector("[data-category-popup-icon]");
+const categoryPopupTitle = document.querySelector("[data-category-popup-title]");
+const categoryPopupSpent = document.querySelector("[data-category-popup-spent]");
+const categoryPopupLeft = document.querySelector("[data-category-popup-left]");
+const categoryPopupRecords = document.querySelector("[data-category-popup-records]");
 let editingWishId = null;
 let pendingDeleteRecordId = null;
 
@@ -50,10 +58,10 @@ const defaultCategories = [
 
 const translations = {
   en: {
-    add: "＋ Add", addWishlistItem: "Add wishlist item", appTitle: "Budget HP", amount: "Amount", archiveRecords: "Archive records by month", autoRefreshBudget: "Auto refresh budget", availableToSave: "available to save", budgetDeviation: "Budget deviation", budgetLeft: "Budget left", cancel: "Cancel", cashRunway: "Spending pace", categories: "Categories", comparedWithPlan: "compared with plan", confirmDeleteTitle: "Delete this record?", controls: "Controls", copyJsonExport: "Copy JSON export", copiedJsonExport: "Copied JSON", currency: "Currency", currentCategoryLeft: "This month left", customDay: "Custom day", dashboard: "Dashboard", delete: "Delete", edit: "Edit", emptyRecords: "No spending records yet", emptyWishlist: "No wishlist items yet", firstDay: "First day of every month", fundedByLeftover: "Funded by leftover budget", fundingCategory: "Funding category", goals: "Goals", history: "History", home: "Home", keepRecords: "Keep all records and reset remaining budget", language: "Language", lastDay: "Last day of every month", left: "left", localDevice: "Local device", manageCategories: "Manage categories", monthlyBudget: "Monthly budget", monthlyCategoryBudget: "Monthly category budget", monthlyPlan: "Monthly plan", monthlyTotalBudget: "Monthly total budget", name: "Name", nextUnlock: "Next unlock", note: "Note", off: "Off", plannedBudgetLine: "gray = budget plan", price: "Price", records: "Records", resetRules: "Reset rules", savedRecords: "Saved records", saveCategories: "Save categories", saveSettings: "Save settings", saveWishlistItem: "Save wishlist item", settings: "Settings", spendingTrend: "Spending over time", subtractFromBudget: "Subtract from budget", subtractSpending: "Subtract spending", targetMonths: "Target months", thingsToBuy: "Things to buy", today: "Today", totalRemaining: "Total remaining", totalSpending: "Total spending", whenRefreshed: "When refreshed", wishlist: "Wishlist",
+    add: "＋ Add", addWishlistItem: "Add wishlist item", appTitle: "Budget HP", amount: "Amount", archiveRecords: "Archive records by month", autoRefreshBudget: "Auto refresh budget", availableToSave: "available to save", budgetDeviation: "Budget deviation", budgetLeft: "Budget left", cancel: "Cancel", cashRunway: "Spending pace", categories: "Categories", comparedWithPlan: "compared with plan", confirmDeleteTitle: "Delete this record?", controls: "Controls", copyJsonExport: "Copy JSON export", copiedJsonExport: "Copied JSON", currency: "Currency", currentCategoryLeft: "This month left", customDay: "Custom day", dashboard: "Dashboard", delete: "Delete", edit: "Edit", emptyCategoryRecords: "No spending in this category this month", emptyRecords: "No spending records yet", emptyWishlist: "No wishlist items yet", firstDay: "First day of every month", fundedByLeftover: "Funded by leftover budget", fundingCategory: "Funding category", goals: "Goals", history: "History", home: "Home", keepRecords: "Keep all records and reset remaining budget", language: "Language", lastDay: "Last day of every month", left: "left", localDevice: "Local device", manageCategories: "Manage categories", monthBattleLog: "Month battle log", monthlyBudget: "Monthly budget", monthlyCategoryBudget: "Monthly category budget", monthlyPlan: "Monthly plan", monthlyTotalBudget: "Monthly total budget", name: "Name", nextUnlock: "Next unlock", note: "Note", off: "Off", plannedBudgetLine: "gray = budget plan", price: "Price", records: "Records", resetRules: "Reset rules", savedRecords: "Saved records", saveCategories: "Save categories", saveSettings: "Save settings", saveWishlistItem: "Save wishlist item", settings: "Settings", spendingTrend: "Spending over time", spentThisMonth: "Spent this month", subtractFromBudget: "Subtract from budget", subtractSpending: "Subtract spending", targetMonths: "Target months", thingsToBuy: "Things to buy", today: "Today", totalRemaining: "Total remaining", totalSpending: "Total spending", whenRefreshed: "When refreshed", wishlist: "Wishlist",
   },
   zh: {
-    add: "＋ 添加", addWishlistItem: "添加心愿", appTitle: "预算血条", amount: "金额", archiveRecords: "按月份归档记录", autoRefreshBudget: "自动刷新预算", availableToSave: "可存下", budgetDeviation: "偏离预算", budgetLeft: "剩余预算", cancel: "取消", cashRunway: "花费节奏", categories: "分类", comparedWithPlan: "相对计划", confirmDeleteTitle: "删除这条记录？", controls: "设置", copyJsonExport: "复制 JSON 备份", copiedJsonExport: "已复制 JSON", currency: "货币", currentCategoryLeft: "本月分类剩余", customDay: "自定义日期", dashboard: "分析", delete: "删除", edit: "编辑", emptyRecords: "还没有消费记录", emptyWishlist: "还没有心愿单", firstDay: "每月第一天", fundedByLeftover: "由分类剩余预算推进", fundingCategory: "绑定分类", goals: "目标", history: "历史", home: "首页", keepRecords: "保留所有记录并重置剩余预算", language: "语言", lastDay: "每月最后一天", left: "剩余", localDevice: "本机保存", manageCategories: "管理分类", monthlyBudget: "月度预算", monthlyCategoryBudget: "每月分类预算", monthlyPlan: "月度计划", monthlyTotalBudget: "每月总预算", name: "名称", nextUnlock: "下一个解锁", note: "备注", off: "关闭", plannedBudgetLine: "灰线=预算基准", price: "价格", records: "记录", resetRules: "刷新规则", savedRecords: "已保存记录", saveCategories: "保存分类", saveSettings: "保存设置", saveWishlistItem: "保存心愿", settings: "设置", spendingTrend: "消费金额走势", subtractFromBudget: "扣除预算", subtractSpending: "记录消费", targetMonths: "几个月买到", thingsToBuy: "想买的东西", today: "今天", totalRemaining: "总剩余", totalSpending: "总消费", whenRefreshed: "刷新时", wishlist: "心愿单",
+    add: "＋ 添加", addWishlistItem: "添加心愿", appTitle: "预算血条", amount: "金额", archiveRecords: "按月份归档记录", autoRefreshBudget: "自动刷新预算", availableToSave: "可存下", budgetDeviation: "偏离预算", budgetLeft: "剩余预算", cancel: "取消", cashRunway: "花费节奏", categories: "分类", comparedWithPlan: "相对计划", confirmDeleteTitle: "删除这条记录？", controls: "设置", copyJsonExport: "复制 JSON 备份", copiedJsonExport: "已复制 JSON", currency: "货币", currentCategoryLeft: "本月分类剩余", customDay: "自定义日期", dashboard: "分析", delete: "删除", edit: "编辑", emptyCategoryRecords: "这个分类本月还没有消费", emptyRecords: "还没有消费记录", emptyWishlist: "还没有心愿单", firstDay: "每月第一天", fundedByLeftover: "由分类剩余预算推进", fundingCategory: "绑定分类", goals: "目标", history: "历史", home: "首页", keepRecords: "保留所有记录并重置剩余预算", language: "语言", lastDay: "每月最后一天", left: "剩余", localDevice: "本机保存", manageCategories: "管理分类", monthBattleLog: "本月战斗记录", monthlyBudget: "月度预算", monthlyCategoryBudget: "每月分类预算", monthlyPlan: "月度计划", monthlyTotalBudget: "每月总预算", name: "名称", nextUnlock: "下一个解锁", note: "备注", off: "关闭", plannedBudgetLine: "灰线=预算基准", price: "价格", records: "记录", resetRules: "刷新规则", savedRecords: "已保存记录", saveCategories: "保存分类", saveSettings: "保存设置", saveWishlistItem: "保存心愿", settings: "设置", spendingTrend: "消费金额走势", spentThisMonth: "本月花费", subtractFromBudget: "扣除预算", subtractSpending: "记录消费", targetMonths: "几个月买到", thingsToBuy: "想买的东西", today: "今天", totalRemaining: "总剩余", totalSpending: "总消费", whenRefreshed: "刷新时", wishlist: "心愿单",
   },
 };
 
@@ -355,6 +363,18 @@ function getCurrentMonthSpent(categoryName = null) {
   }, 0);
 }
 
+function getCurrentMonthRecords(categoryName) {
+  const now = new Date();
+  const start = getStartOfMonth(now);
+  const end = getEndOfMonth(now);
+  return getSavedRecords()
+    .filter((record) => {
+      const date = getRecordDate(record);
+      return record.category === categoryName && date >= start && date <= end;
+    })
+    .sort((a, b) => getRecordDate(b) - getRecordDate(a));
+}
+
 function getCategoriesWithBalances(categories = getSavedCategories()) {
   return categories.map((category) => ({
     ...category,
@@ -466,6 +486,11 @@ function renderHomeCategories(categories) {
     row.className = "category-row";
     row.classList.toggle("category-dead", left < 0);
     row.dataset.categoryName = category.name;
+    row.tabIndex = 0;
+    row.setAttribute("role", "button");
+    row.setAttribute("aria-label", currentLanguage === "zh"
+      ? `查看${category.name}本月消费记录`
+      : `View ${category.name} spending records this month`);
     row.innerHTML = `
       <div class="category-meta">
         <span class="category-icon"></span>
@@ -854,6 +879,60 @@ function refreshMoneyViews() {
   setRange(currentRange);
 }
 
+function formatRecordDay(record) {
+  const date = getRecordDate(record);
+  return currentLanguage === "zh"
+    ? date.toLocaleDateString("zh-CN", { month: "long", day: "numeric" })
+    : date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+}
+
+function renderCategoryPopupRecord(record) {
+  const item = document.createElement("article");
+  item.innerHTML = `
+    <div>
+      <strong></strong>
+      <span></span>
+    </div>
+    <em></em>
+  `;
+  item.querySelector("strong").textContent = record.note || (currentLanguage === "zh" ? "消费" : "Spending");
+  item.querySelector("span").textContent = formatRecordDay(record);
+  item.querySelector("em").textContent = `-${formatMoney(getRecordAmount(record))}`;
+  return item;
+}
+
+function openCategoryPopup(categoryName) {
+  const category = getCategoriesWithBalances().find((item) => item.name === categoryName);
+  if (!category) return;
+  const records = getCurrentMonthRecords(categoryName);
+  const spent = records.reduce((sum, record) => sum + getRecordAmount(record), 0);
+  categoryPopupIcon.textContent = category.icon || "♡";
+  categoryPopupTitle.textContent = category.name;
+  categoryPopupSpent.textContent = formatMoney(spent);
+  categoryPopupLeft.textContent = category.left < 0
+    ? currentLanguage === "zh" ? `超出 ${formatMoney(Math.abs(category.left))}` : `${formatMoney(Math.abs(category.left))} over`
+    : formatMoney(category.left);
+  categoryPopupLeft.classList.toggle("is-over", category.left < 0);
+  categoryPopupRecords.innerHTML = "";
+  if (!records.length) {
+    const empty = document.createElement("p");
+    empty.className = "empty-state";
+    empty.textContent = t("emptyCategoryRecords");
+    categoryPopupRecords.append(empty);
+  } else {
+    records.forEach((record) => categoryPopupRecords.append(renderCategoryPopupRecord(record)));
+  }
+  categoryPopupBackdrop.classList.add("show");
+  categoryPopup.classList.add("show");
+  categoryPopup.setAttribute("aria-hidden", "false");
+}
+
+function closeCategoryPopup() {
+  categoryPopupBackdrop.classList.remove("show");
+  categoryPopup.classList.remove("show");
+  categoryPopup.setAttribute("aria-hidden", "true");
+}
+
 function getRecordDeleteLabel(record) {
   const name = record.note || (currentLanguage === "zh" ? "消费" : "Spending");
   return `${name} · ${record.category} · ${formatMoney(getRecordAmount(record))}`;
@@ -987,8 +1066,25 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeSheet();
     closeWishSheet();
+    closeCategoryPopup();
   }
 });
+
+categoryList.addEventListener("click", (event) => {
+  const row = event.target.closest("[data-category-name]");
+  if (!row) return;
+  openCategoryPopup(row.dataset.categoryName);
+});
+
+categoryList.addEventListener("keydown", (event) => {
+  if (event.key !== "Enter" && event.key !== " ") return;
+  const row = event.target.closest("[data-category-name]");
+  if (!row) return;
+  event.preventDefault();
+  openCategoryPopup(row.dataset.categoryName);
+});
+
+closeCategoryPopupButtons.forEach((button) => button.addEventListener("click", closeCategoryPopup));
 
 chipGroup.addEventListener("click", (event) => {
   const button = event.target.closest("button");
